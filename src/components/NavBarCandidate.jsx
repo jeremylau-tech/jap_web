@@ -53,12 +53,7 @@ const NavBarCandidate = () => {
 
 export default NavBarCandidate
 
-/*
-<div className='md:hidden text-orange hover:bg-orange rounded-md hover:text-white' onClick={handleClick}>
-                {!nav ? <MdOutlineClose size={22} /> : <HiOutlineMenu size={22} />}
-                
-            </div>
-            */
+
 
 
 
