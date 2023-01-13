@@ -19,7 +19,6 @@ function LoginForm() {
                         <input className='border rounded p-2' type="password" placeholder='******' />
                     </div>
                     
-                    <p className='font-projectFont text-xs italic text-orange text-right'>Forgot Password?</p>
                     <button className='border rounded-lg w-full my-4 py-2 bg-orange font-projectFont font-bold text-white hover:bg-orange-500'>
                         Sign In
                     </button>
