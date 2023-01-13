@@ -14,12 +14,12 @@ function Footer() {
       </div>
       <div className='max-w-[1240px] px-8 mx-auto pb-5 text-center bg-orange'>
         <p className='pb-6 text-sm italic text-black'>A one-stop platform that connects and unites students with opportunities.</p>
-        <div className='mx-auto inline-flex'>
+        <div className='mx-auto inline-flex text-black'>
           <ImMail size={25} className='mr-[6px]' />
           <a href="mailto:jap.contact@gmail.com" className='font-medium'>jap.contact@gmail.com</a>
         </div>
       </div>
-      <div className='w-full mx-auto py-3 bg-[black] text-white text-center text-xs font-bold tracking-wide'>
+      <div className='w-full mx-auto py-3 bg-black text-white text-center text-xs font-bold tracking-wide'>
         <p>JAP Developer, Universiti Sains Malaysia © 2022</p>
       </div>
     </div>

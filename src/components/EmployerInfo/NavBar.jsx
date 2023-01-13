@@ -18,8 +18,8 @@ const NavBar = () => {
                 </Link>
             </div>
             <div className='hidden md:flex pr-8'>
-                <Link to='/SignUpCandidate' className='px-8 py-3 rounded-lg border font-projectFont text-base font-medium bg-blue text-white hover:bg-white hover:text-blue hover:border-blue active:text-blue-200 active:scale-105 mr-4'>Sign Up</Link>
-                <Link to='/SignInEmployer' className='px-8 py-3 rounded-lg border font-projectFont text-base font-medium bg-orange text-white hover:bg-white hover:text-orange hover:border-orange active:text-orange-200 active:scale-105'>Employers</Link>
+                <Link to='/SignInCandidate' className='px-8 py-3 rounded-lg border font-projectFont text-base font-medium bg-orange text-white hover:bg-white hover:text-orange hover:border-orange active:text-orange-200 active:scale-105 mr-4'>Sign In</Link>
+                <Link to='/SignInEmployer' className='px-8 py-3 rounded-lg border font-projectFont text-base font-medium bg-blue text-white hover:bg-white hover:text-blue hover:border-blue active:text-blue-200 active:scale-105'>Employers</Link>
             </div>
              
             <div onClick={handleClick} className='block md:hidden p-2 text-orange hover:border hover:shadow-sm rounded-md'> {/** above mb: hidden */}
@@ -30,10 +30,13 @@ const NavBar = () => {
 
         <ul className={!nav ? 'hidden' : 'absolute bg-white w-full px-8 md:hidden'}>
             <div className='flex flex-col my-4 text-center'>                
-                <Link to='/SignUpCandidate' className=' px-8 py-3 mb-4 rounded-lg border font-projectFont text-base font-medium bg-blue text-white hover:bg-white hover:text-blue hover:border-blue active:text-blue-200 active:scale-105'>Sign Up</Link>
+                <Link to='/SignInCandidate' className=' px-8 py-3 mb-4 rounded-lg border font-projectFont text-base font-medium bg-blue text-white hover:bg-white hover:text-blue hover:border-blue active:text-blue-200 active:scale-105'>Sign In</Link>
                 <Link to='/SignInEmployer' className='px-8 py-3 rounded-lg border font-projectFont text-base font-medium bg-orange text-white hover:bg-white hover:text-orange hover:border-orange active:text-orange-200 active:scale-105'>Employers</Link>
-            </div>     
+            </div>
+            
         </ul>
+        
+        
     </div>
   )
 }

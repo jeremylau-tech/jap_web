@@ -11,7 +11,7 @@ module.exports = {
       xl: '1280px',
       '2xl': '1536px',
     },
-    
+
     colors: {
       transparent: 'transparent',
       'black': '#000000',
@@ -42,5 +42,8 @@ module.exports = {
     },
     extend: {},
   },
-  plugins: [require("daisyui")],
+  plugins: [
+    require("daisyui"),
+    require('@tailwindcss/forms'),
+  ],
 }

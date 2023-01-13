@@ -1,10 +1,14 @@
 import React from 'react'
-import NavBarEmployer from '../components/NavBarEmployer'
+import LoginForm from '../components/SignInEmployer/LoginForm'
+import NavBar from '../components/SignInEmployer/NavBar'
+import Footer from '../components/Footer'
 
 function SignInEmployer() {
   return (
     <div>
-        <NavBarEmployer />
+        <NavBar />
+        <LoginForm />
+        <Footer />
     </div>
   )
 }

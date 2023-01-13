@@ -22,22 +22,22 @@ const NavBarCandidate = () => {
                     <img className='w-[130px]' src={logo_jap} alt="/" />
                 </Link>
                 <ul className='hidden md:flex font-projectFont text-base font-medium'>
-                    <Link to='/' className='p-4 text-orange hover:text-orange-600'>Home</Link>
-                    <Link to='/' className='p-4 text-orange hover:text-orange-600'>Job Search</Link>
-                    <Link to='/' className='p-4 text-orange hover:text-orange-600'>Profile</Link>
+                    <Link to='/CandidateHome' className='p-4 text-orange hover:text-orange-600 hover:scale-105'>Home</Link>
+                    <Link to='/' className='p-4 text-orange hover:text-orange-600 hover:scale-105'>Job Search</Link>
+                    <Link to='/CandidateProfile' className='p-4 text-orange hover:text-orange-600 hover:scale-105'>Profile</Link>
                 </ul>
             </div>
             <div className='hidden md:flex pr-8'>
                 <button onClick={handleEmployer} className='px-8 py-3 rounded-lg border font-projectFont text-base font-medium bg-orange text-white hover:bg-white hover:text-orange hover:border-orange active:text-orange-200 active:scale-105'>Employers</button>
             </div>
             
-            <div onClick={handleClick} className='block md:hidden p-2 text-orange hover:border-orange rounded-md'> {/** above mb: hidden */}
+            <div onClick={handleClick} className='block md:hidden p-2 text-orange hover:border hover:shadow-sm rounded-md'> {/** above mb: hidden */}
                 {nav ? <MdOutlineClose size={22} /> : <HiOutlineMenu size={22} />}
             </div>
            
         </div>
 
-        <ul className={!nav ? 'hidden' : 'absolute bg-white w-full px-8'}>
+        <ul className={!nav ? 'hidden' : 'absolute bg-white w-full px-8 md:hidden'}>
             <Link to='/' className='flex p-4 font-projectFont text-base font-medium text-orange hover:bg-orange-100 hover:text-white px-3 py-2 rounded-md active:bg-orange-200'>Home</Link>
             <Link to='/' className='flex p-4 font-projectFont text-base font-medium text-orange hover:bg-orange-100 hover:text-white px-3 py-2 rounded-md active:bg-orange-200'>Job Search</Link>
             <Link to='/' className='flex p-4 font-projectFont text-base font-medium text-orange hover:bg-orange-100 hover:text-white px-3 py-2 rounded-md active:bg-orange-200'>Profile</Link>

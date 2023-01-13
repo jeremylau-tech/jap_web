@@ -22,26 +22,28 @@ const NavBarEmployer = () => {
                     <img className='w-[130px]' src={logo_jap} alt="/" />
                 </Link>
                 <ul className='hidden md:flex font-projectFont text-base font-medium'>
-                    <Link to='/' className='p-4 text-blue hover:text-blue-600'>Home</Link>
-                    <Link to='/' className='p-4 text-blue hover:text-blue-600'>Post Job</Link>
-                    <Link to='/' className='p-4 text-blue hover:text-blue-600'>Job List</Link>
-                    <Link to='/' className='p-4 text-blue hover:text-blue-600'>Candidate Review</Link>
+                    <Link to='/EmployerHome' className='p-4 text-blue hover:text-blue-600 hover:scale-105'>Home</Link>
+                    <Link to='/' className='p-4 text-blue hover:text-blue-600 hover:scale-105'>Post Job</Link>
+                    <Link to='/' className='p-4 text-blue hover:text-blue-600 hover:scale-105'>Job List</Link>
+                    <Link to='/' className='p-4 text-blue hover:text-blue-600 hover:scale-105'>Candidate Review</Link>
+                    <Link to='/EmployerProfile' className='p-4 text-blue hover:text-blue-600 hover:scale-105'>Profile</Link>
                 </ul>
             </div>
             <div className='hidden md:flex pr-8'>
                 <button onClick={handleCandidate} className='px-8 py-3 rounded-lg border font-projectFont text-base font-medium bg-blue text-white hover:bg-white hover:text-blue hover:border-blue active:text-blue-200 active:scale-105'>Candidates</button>
             </div>
             
-            <div onClick={handleClick} className='block md:hidden p-2 text-blue hover:border-blue rounded-md'> {/** above mb: hidden */}
+            <div onClick={handleClick} className='block md:hidden p-2 text-blue hover:border hover:shadow-md rounded-md'> {/** above mb: hidden */}
                 {nav ? <MdOutlineClose size={22} /> : <HiOutlineMenu size={22} />}
             </div>
            
         </div>
 
-        <ul className={!nav ? 'hidden' : 'absolute bg-white w-full px-8'}>
+        <ul className={!nav ? 'hidden' : 'absolute bg-white w-full px-8 md:hidden'}>
             <Link to='/' className='flex p-4 font-projectFont text-base font-medium text-blue hover:bg-blue-100 hover:text-white px-3 py-2 rounded-md active:bg-blue-200'>Home</Link>
-            <Link to='/' className='flex p-4 font-projectFont text-base font-medium text-blue hover:bg-blue-100 hover:text-white px-3 py-2 rounded-md active:bg-blue-200'>Job Search</Link>
-            <Link to='/' className='flex p-4 font-projectFont text-base font-medium text-blue hover:bg-blue-100 hover:text-white px-3 py-2 rounded-md active:bg-blue-200'>Profile</Link>
+            <Link to='/' className='flex p-4 font-projectFont text-base font-medium text-blue hover:bg-blue-100 hover:text-white px-3 py-2 rounded-md active:bg-blue-200'>Post Job</Link>
+            <Link to='/' className='flex p-4 font-projectFont text-base font-medium text-blue hover:bg-blue-100 hover:text-white px-3 py-2 rounded-md active:bg-blue-200'>Job List</Link>
+            <Link to='/' className='flex p-4 font-projectFont text-base font-medium text-blue hover:bg-blue-100 hover:text-white px-3 py-2 rounded-md active:bg-blue-200'>Candidate Review</Link>
             <div className='flex flex-col my-4'>
                 <button onClick={handleCandidate} className='px-8 py-3 border rounded-lg font-projectFont text-base font-medium bg-blue text-white hover:bg-white hover:text-blue hover:border-blue active:text-blue-200 active:scale-105'>Candidates</button>
             </div>
