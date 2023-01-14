@@ -13,6 +13,7 @@ import CandidateHome from './pages/CandidateHome';
 import EmployerHome from './pages/EmployerHome';
 import CandidateProfile from './pages/CandidateProfile';
 import EmployerProfile from './pages/EmployerProfile';
+import JobForm from './pages/JobForm';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path='/EmployerHome' element ={<EmployerHome />} />
           <Route path='/CandidateProfile' element ={<CandidateProfile />} />
           <Route path='/EmployerProfile' element ={<EmployerProfile />} />
+          <Route path='/JobForm' element ={<JobForm />} />
         </Routes>
     </div>
   );
