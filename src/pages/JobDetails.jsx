@@ -1,16 +1,16 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import Layout from '../components/JobListing/Layout';
+import Contents from '../components/JobDetails/Contents';
 
-function JobListing() {
+function JobDetails() {
   return (
     <div>
         <Navbar/>
-        <Layout/>
+        <Contents/>
         <Footer/>
     </div>
   )
 }
 
-export default JobListing
+export default JobDetails

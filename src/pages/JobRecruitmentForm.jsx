@@ -1,16 +1,16 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import Layout from '../components/JobListing/Layout';
+import Skills from '../components/JobRecruitmentForm/Skills';
 
-function JobListing() {
+function JobRecruitmentForm() {
   return (
     <div>
         <Navbar/>
-        <Layout/>
+        <Skills/>
         <Footer/>
     </div>
   )
 }
 
-export default JobListing
+export default JobRecruitmentForm
