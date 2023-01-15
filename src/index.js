@@ -9,6 +9,7 @@ import JobDetails from './pages/JobDetails';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
+    <JobListing/>
     <JobDetails/>
   </BrowserRouter>
 );
