@@ -16,9 +16,9 @@ function Form() {
 				</div> 
 			</div>
 			<div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3 justify-center text-black">
-				<div className="col-span-full sm:col-span-3">
-					<label for="company-name" className="font-projectFont font-mediu text-sm">Company Name</label>
-					<input id="company-name" type="text" placeholder="Example Sdn. Bhd." className="w-full font-projectFont rounded-md border-orange active:bg-white active:text-black" />
+				<div className="col-span-full">
+					<label for="company-name" className="font-projectFont font-medium text-sm">Company Name</label>
+					<input id="company-name" type="text" placeholder="Example Sdn. Bhd." className="w-full font-projectFont rounded-md border-orange" />
 				</div>
 				<div className="col-span-full sm:col-span-3">
 					<label for="company-industry" className="font-projectFont font-medium text-sm">Industry</label>
@@ -57,10 +57,6 @@ function Form() {
 				<div className="col-span-full sm:col-span-3">
 					<label htmlFor="company-website" className="font-projectFont font-medium text-sm">Company Website</label>
 					<input id="company-website" type="text" placeholder="www.company.com" className="w-full font-projectFont rounded-md  border-orange active:bg-white active:text-black" />
-				</div>
-				<div className="col-span-full sm:col-span-3">
-					<label for="company-email" className="font-projectFont font-medium text-sm">Company Email</label>
-					<input id="company-email" type="email" placeholder="email@company.com" className="w-full font-projectFont rounded-md  border-orange" />
 				</div> 
 				<div className="col-span-full sm:col-span-2">
 					<label for="company-country" className="font-projectFont font-medium text-sm">Country</label>

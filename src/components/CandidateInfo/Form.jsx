@@ -36,10 +36,6 @@ function Form() {
 					<label for="contact" className="font-projectFont font-medium text-sm">Contact Number</label>
 					<input id="contact" type="text" placeholder="with country code (60123456789)" className="w-full font-projectFont rounded-md border-blue" />
 				</div>
-				<div className="col-span-full">
-					<label for="email" className="font-projectFont font-medium text-sm">Email</label>
-					<input id="email" type="email" placeholder="Email" className="w-full font-projectFont rounded-md border-blue" />
-				</div>
 				<div className="col-span-full sm:col-span-2">
 					<label for="country" className="font-projectFont font-medium text-sm">Country</label>
 					<input id="country" type="text" placeholder="" className="w-full font-projectFont rounded-md border-blue" />

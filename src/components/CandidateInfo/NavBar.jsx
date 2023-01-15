@@ -33,7 +33,6 @@ const NavBar = () => {
                 <Link to='/SignInCandidate' className=' px-8 py-3 mb-4 rounded-lg border font-projectFont text-base font-medium bg-blue text-white hover:bg-white hover:text-blue hover:border-blue active:text-blue-200 active:scale-105'>Sign In</Link>
                 <Link to='/SignInEmployer' className='px-8 py-3 rounded-lg border font-projectFont text-base font-medium bg-orange text-white hover:bg-white hover:text-orange hover:border-orange active:text-orange-200 active:scale-105'>Employers</Link>
             </div>
-            
         </ul>
         
         

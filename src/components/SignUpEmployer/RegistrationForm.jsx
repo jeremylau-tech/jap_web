@@ -1,25 +1,49 @@
-import React from 'react'
+import React, { useState } from 'react'
 import employer from '../../assets/employer.png'
 import { AiOutlineLogin } from 'react-icons/ai'
-import { Link } from "react-router-dom" 
+import { Link, useNavigate } from "react-router-dom"
+import { EmployerAuth } from '../../contexts/EmployerAuthContext'
 
 function RegistrationForm() {
-  return (
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
+    const {createEmployer} = EmployerAuth();
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setError('')
+        try{
+            setLoading(true)
+            await createEmployer(email, password);
+            navigate('/EmployerHome')
+        } catch (e) {
+            setError('Failed to create an account')
+            console.log(e.message)
+        }
+        setLoading(false)
+    }
+
+    return (
       <div className='w-full h-screen flex'>
         <div className='grid grid-cols-1 md:grid-cols-2 m-auto mt-24 h-[550px] shadow-xl sm:max-w-[900px]'>
             <div className='w-full h-[550px] hidden md:block'>
                 <img className='w-full h-full' src={employer} alt="/"/>
             </div>
             <div className='p-6 flex flex-col justify-around'>
-                <form className='max-w-[400px] w-full mx-auto'>
+                <form 
+                    onSubmit={handleSubmit}
+                    className='max-w-[400px] w-full mx-auto text-black'>
                     <h2 className='text-xl text-black md:text-2xl font-projectFont font-extrabold text-center mb-8'>Create your company account now!</h2>
                     <div className='flex flex-col py-2'>
                         <label className='font-projectFont text-black text-sm font-normal'>Company Email Address</label>
-                        <input className='border rounded p-2' type="email" placeholder='example@company.com' />
+                        <input onChange={(e) => setEmail(e.target.value)} className='border rounded p-2' type="email" placeholder='example@company.com' />
                     </div>
                     <div className='flex flex-col py-2'>
                         <label className='font-projectFont text-black text-sm font-normal'>Password</label>
-                        <input className='border rounded p-2' type="password" placeholder='******' />
+                        <input onChange={(e) => setPassword(e.target.value)} className='border rounded p-2' type="password" placeholder='******' />
                     </div>
                     
                     <button className='border rounded-lg w-full my-4 py-2 bg-orange font-projectFont font-bold text-white hover:bg-orange-500'>
