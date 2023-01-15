@@ -3,7 +3,7 @@ import React from 'react'
 function Content() {
   return (
   <div className='w-full py-[80px] bg-white px-8 pt-6 pb-8 mb-4'>
-    <figure><img src="https://www.sparrowsph.my/image/data/theme/Entrepreneurs%20Listed/vitrox-chu-logo_030922231458.jpg" alt="Company" height-150px width-200px /></figure> 
+    <figure className='h-20px w-50px px-8 pt-6 pb-8 mb-4 '><img src="https://www.sparrowsph.my/image/data/theme/Entrepreneurs%20Listed/vitrox-chu-logo_030922231458.jpg" alt="Company"/></figure> 
     <div className=''>
     <div className='shadow-md rounded px-8 pt-6 pb-8 mb-4'>
         <h1 className='text-[#F68B1F] md:text-3xl sm:text-2xl text-2xl font-bold text-left pb-4'>Job Title</h1>
