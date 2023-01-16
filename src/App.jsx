@@ -38,6 +38,7 @@ function App() {
           <Route path='EmployerHome' element ={<EmployerHome />} />
           <Route path='/CandidateProfile' element ={<CandidateProfile />} />
           <Route path='/EmployerProfile' element ={<EmployerProfile />} />
+          <Route path='/JobForm' element ={<JobForm />} />
         </Routes>
       </AuthContextProvider>
       </EmployerAuthContextProvider>
