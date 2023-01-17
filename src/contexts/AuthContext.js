@@ -12,14 +12,17 @@ export const AuthContextProvider = ({children}) => {
     const [candidate,setCandidate] = useState({});
     const [loading, setLoading] = useState(true);
 
+    {/*sign up a new user*/}
     const createCandidate = (email, password) => {
         createUserWithEmailAndPassword(auth, email, password);
     };
 
+    {/*sign in for an existing user*/}
     const signInCandidate = (email, password) => {
         signInWithEmailAndPassword(auth, email, password);
     }
 
+    {/*log out for an existing user*/}
     const logoutCandidate = () => {
         return signOut(auth);
     };
