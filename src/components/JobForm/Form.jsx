@@ -50,7 +50,7 @@ function Form() {
 				</div>
 				<div className="col-span-full sm:col-span-3">
 					<label for="career-level" className="font-projectFont font-medium text-sm">Career Level</label>
-					<select id="career-level" className="select select-bordered w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-orange-400">
+					<select id="career-level" className=" select-bordered w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-orange-400">
                         <option disabled selected>Select</option>
                         <option>Non-executive</option>
                         <option>Entry level</option>

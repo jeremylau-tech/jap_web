@@ -14,6 +14,7 @@ import EmployerHome from './pages/EmployerHome';
 import CandidateProfile from './pages/CandidateProfile';
 import EmployerProfile from './pages/EmployerProfile';
 import ProtectedRoute from './components/ProtectedRoute';
+import JobForm from './pages/JobForm';
 
 function App() {
   return (
@@ -35,10 +36,12 @@ function App() {
                 <CandidateHome />
               </ProtectedRoute>
             } />
-          <Route path='EmployerHome' element ={<EmployerHome />} />
+          <Route path='/EmployerHome' element ={<EmployerHome />} />
           <Route path='/CandidateProfile' element ={<CandidateProfile />} />
           <Route path='/EmployerProfile' element ={<EmployerProfile />} />
           <Route path='/JobForm' element ={<JobForm />} />
+
+          
         </Routes>
       </AuthContextProvider>
       </EmployerAuthContextProvider>
