@@ -58,20 +58,19 @@ function Form() {
 						<TiUser size={55} />
   					</div>
 				</div> 
-				<button type="button" className="font-projectFont px-4 py-2 border rounded-md">Change</button>
 			</div>
 			<div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3 justify-center">
 				<div className="col-span-full sm:col-span-3">
 					<label for="first-name" className="font-projectFont font-medium text-sm">First Name</label>
-					<input onChange={(e) => setFirstName(e.target.value)} id="first-name" type="text" placeholder="First name" className="w-full font-projectFont rounded-md border-blue" />
+					<input onChange={(e) => setFirstName(e.target.value)} id="first-name" type="text" placeholder="First name" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-blue-400" />
 				</div>
 				<div className="col-span-full sm:col-span-3">
 					<label for="last-name" className="font-projectFont font-medium text-sm">Last Name</label>
-					<input onChange={(e) => setLastName(e.target.value)} id="last-name" type="text" placeholder="Last name" className="w-full font-projectFont rounded-md border-blue" />
+					<input onChange={(e) => setLastName(e.target.value)} id="last-name" type="text" placeholder="Last name" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-blue-400" />
 				</div>
 				<div className="col-span-full sm:col-span-3">
 					<label for="qualification" className="font-projectFont font-medium text-sm">Gender</label>
-                    <select onChange={(e) => setGender(e.target.value)} className="w-full p-2 font-projectFont text-[#64748b] text-base bg-white border rounded-md shadow-sm border-blue">
+                    <select onChange={(e) => setGender(e.target.value)} className="w-full p-2 font-projectFont text-base bg-white border rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-blue-400">
                         <option disabled selected>Gender</option>
                         <option>Male</option>
                         <option>Female</option>
@@ -79,19 +78,19 @@ function Form() {
 				</div>
 				<div className="col-span-full sm:col-span-3">
 					<label for="contact" className="font-projectFont font-medium text-sm">Contact Number</label>
-					<input onChange={(e) => setContactNumber(e.target.value)} id="contact" type="text" placeholder="with country code (60123456789)" className="w-full font-projectFont rounded-md border-blue" />
+					<input onChange={(e) => setContactNumber(e.target.value)} id="contact" type="text" placeholder="with country code (60123456789)" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-blue-400" />
 				</div>
 				<div className="col-span-full sm:col-span-2">
 					<label for="country" className="font-projectFont font-medium text-sm">Country</label>
-					<input onChange={(e) => setCountry(e.target.value)} id="country" type="text" placeholder="" className="w-full font-projectFont rounded-md border-blue" />
+					<input onChange={(e) => setCountry(e.target.value)} id="country" type="text" placeholder="" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-blue-400" />
 				</div>
 				<div className="col-span-full sm:col-span-2">
 					<label for="state" className="font-projectFont font-medium text-sm">State</label>
-					<input onChange={(e) => setState(e.target.value)} id="state" type="text" placeholder="" className="w-full font-projectFont rounded-md border-blue" />
+					<input onChange={(e) => setState(e.target.value)} id="state" type="text" placeholder="" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-blue-400" />
 				</div>
 				<div className="col-span-full sm:col-span-2">
 					<label for="city" className="font-projectFont font-medium text-sm">City</label>
-					<input onChange={(e) => setCity(e.target.value)} id="city" type="text" placeholder="" className="w-full font-projectFont rounded-md border-blue" />
+					<input onChange={(e) => setCity(e.target.value)} id="city" type="text" placeholder="" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-blue-400" />
 				</div>
 			</div>
 		    </fieldset>
@@ -102,11 +101,11 @@ function Form() {
 			<div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
                 <div className="col-span-full">
 					<label for="university" className="font-projectFont font-medium text-sm">University / Institute</label>
-					<input onChange={(e) => setUniversity(e.target.value)} id="university" type="text" placeholder="University / Institute name" className="w-full font-projectFont rounded-md border-blue" />
+					<input onChange={(e) => setUniversity(e.target.value)} id="university" type="text" placeholder="University / Institute name" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-blue-400" />
 				</div>
 				<div className="col-span-full sm:col-span-3">
 					<label for="qualification" className="font-projectFont font-medium text-sm">Qualification</label>
-                    <select onChange={(e) => setQualification(e.target.value)} className="w-full p-2 font-projectFont text-[#64748b] text-base bg-white border rounded-md shadow-sm border-blue">
+                    <select onChange={(e) => setQualification(e.target.value)} className="w-full p-2 font-projectFont text-base bg-white border rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-blue-400">
                         <option disabled selected>Qualification</option>
                         <option>SPM, O-Level or equivalent</option>
                         <option>STPM, Foundation or equivalent</option>
@@ -120,7 +119,7 @@ function Form() {
 				</div>
                 <div className="col-span-full sm:col-span-3">
 					<label for="fieldStudy" className="font-projectFont font-medium text-sm">Field of Study</label>
-					<input onChange={(e) => setFieldStudy(e.target.value)} id="fieldStudy" type="text" placeholder="" className="w-full font-projectFont rounded-md border-blue" />
+					<input onChange={(e) => setFieldStudy(e.target.value)} id="fieldStudy" type="text" placeholder="" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-blue-400" />
 				</div>
 			</div>
 		    </fieldset>

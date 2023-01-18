@@ -56,11 +56,11 @@ function Form() {
 			<div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3 justify-center text-black">
 				<div className="col-span-full">
 					<label for="company-name" className="font-projectFont font-medium text-sm">Company Name</label>
-					<input onChange={(e) => setCompanyName(e.target.value)} id="company-name" type="text" placeholder="Example Sdn. Bhd." className="w-full font-projectFont rounded-md border-orange" />
+					<input onChange={(e) => setCompanyName(e.target.value)} id="company-name" type="text" placeholder="Example Sdn. Bhd." className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-orange-400" />
 				</div>
 				<div className="col-span-full sm:col-span-3">
 					<label for="company-industry" className="font-projectFont font-medium text-sm">Industry</label>
-                    <select onChange={(e) => setIndustry(e.target.value)} id="company-instry" className="w-full p-2 font-projectFont text-[#64748b] text-base bg-white border rounded-md shadow-sm border-orange ">
+                    <select onChange={(e) => setIndustry(e.target.value)} id="company-instry" className="w-full p-2 font-projectFont text-base bg-white border rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-orange-400 ">
                         <option disabled selected>Industry</option>
                         <option>Electronics Manufacturing</option>
                         <option>Semiconductors</option>
@@ -77,7 +77,7 @@ function Form() {
 				</div>
 				<div className="col-span-full sm:col-span-3">
 					<label for="company-size" className="font-projectFont font-medium text-sm">Company Size</label>
-                    <select onChange={(e) => setCompanySize(e.target.value)} id="company-size" className="w-full p-2 font-projectFont  text-base bg-white border rounded-md shadow-sm border-orange">
+                    <select onChange={(e) => setCompanySize(e.target.value)} id="company-size" className="w-full p-2 font-projectFont  text-base bg-white border rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-orange-400">
                         <option disabled selected>Company Size</option>
                         <option>1 - 50 employees</option>
                         <option>51 - 100 employees</option>
@@ -90,23 +90,23 @@ function Form() {
 				</div>
 				<div className="col-span-full sm:col-span-3">
 					<label for="founded" className="font-projectFont font-medium text-sm">Founded</label>
-					<input onChange={(e) => setFounded(e.target.value)} id="founded" type="month" className="w-full font-projectFont rounded-md border-orange"/>	
+					<input onChange={(e) => setFounded(e.target.value)} id="founded" type="month" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-orange-400"/>	
 				</div>
 				<div className="col-span-full sm:col-span-3">
 					<label htmlFor="company-website" className="font-projectFont font-medium text-sm">Company Website</label>
-					<input onChange={(e) => setCompanyWebsite(e.target.value)} id="company-website" type="text" placeholder="www.company.com" className="w-full font-projectFont rounded-md  border-orange active:bg-white active:text-black" />
+					<input onChange={(e) => setCompanyWebsite(e.target.value)} id="company-website" type="text" placeholder="www.company.com" className="w-full font-projectFont rounded-md  focus:ring focus:ring-opacity-75 focus:ring-orange-400" />
 				</div> 
 				<div className="col-span-full sm:col-span-2">
 					<label for="company-country" className="font-projectFont font-medium text-sm">Country</label>
-					<input onChange={(e) => setCountry(e.target.value)} id="company-country" type="text" placeholder="" className="w-full font-projectFont rounded-md border-orange" />
+					<input onChange={(e) => setCountry(e.target.value)} id="company-country" type="text" placeholder="" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-orange-400" />
 				</div>
 				<div className="col-span-full sm:col-span-2">
 					<label for="company-state" className="font-projectFont font-medium text-sm">State / Province</label>
-					<input onChange={(e) => setState(e.target.value)} id="company-state" type="text" placeholder="" className="w-full font-projectFont rounded-md border-orange" />
+					<input onChange={(e) => setState(e.target.value)} id="company-state" type="text" placeholder="" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-orange-400" />
 				</div>
 				<div className="col-span-full sm:col-span-2">
 					<label for="company-city" className="font-projectFont font-medium text-sm">City</label>
-					<input onChange={(e) => setCity(e.target.value)} id="company-city" type="text" placeholder="" className="w-full font-projectFont rounded-md border-orange" />
+					<input onChange={(e) => setCity(e.target.value)} id="company-city" type="text" placeholder="" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-orange-400" />
 				</div>
 			</div>
 		    </fieldset>
