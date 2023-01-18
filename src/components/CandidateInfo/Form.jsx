@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { TiUser } from 'react-icons/ti';
-import { doc, updateDoc, getDoc } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
 import { db } from '../../utils/init-firebase';
 import { useNavigate } from 'react-router-dom';
 

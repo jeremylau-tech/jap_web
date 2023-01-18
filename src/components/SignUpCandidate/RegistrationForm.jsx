@@ -16,6 +16,7 @@ function RegistrationForm() {
         setError('')
         try{
             await createCandidate(email, password);
+            localStorage.setItem('jap-email', email);
             navigate('/CandidateInfo')
         } catch (e) {
             setError('Failed to create an account')
