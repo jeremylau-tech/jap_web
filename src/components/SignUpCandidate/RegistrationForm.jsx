@@ -3,13 +3,11 @@ import job_applicant from '../../assets/job-applicant.png'
 import { AiOutlineLogin } from 'react-icons/ai'
 import { Link, useNavigate } from "react-router-dom" 
 import { CandidateAuth } from '../../contexts/AuthContext'
-import { updateCurrentUser } from 'firebase/auth'
 
 function RegistrationForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const [loading, setLoading] = useState(false);
     const {createCandidate} = CandidateAuth();
     const navigate = useNavigate();
 
@@ -17,14 +15,13 @@ function RegistrationForm() {
         e.preventDefault();
         setError('')
         try{
-            setLoading(true)
             await createCandidate(email, password);
-            navigate('/CandidateHome')
+            localStorage.setItem('jap-email', email);
+            navigate('/CandidateInfo')
         } catch (e) {
             setError('Failed to create an account')
             console.log(e.message)
         }
-        setLoading(false)
     }
 
     return (
@@ -44,7 +41,7 @@ function RegistrationForm() {
                         <input onChange={(e) => setPassword(e.target.value)} className='border rounded p-2' type="password" placeholder='******' required />
                     </div>
                     
-                    <button disable={loading} className='border rounded-lg w-full my-4 py-2 bg-blue font-projectFont font-bold text-white hover:bg-blue-500'>
+                    <button className='border rounded-lg w-full my-4 py-2 bg-blue font-projectFont font-bold text-white hover:bg-blue-500'>
                         Sign Up
                     </button>
                     <div class="flex justify-center items-center mt-6">

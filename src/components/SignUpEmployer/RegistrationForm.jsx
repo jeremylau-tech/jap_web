@@ -1,29 +1,29 @@
 import React, { useState } from 'react'
 import employer from '../../assets/employer.png'
 import { AiOutlineLogin } from 'react-icons/ai'
-import { Link, useNavigate } from "react-router-dom"
-import { EmployerAuth } from '../../contexts/EmployerAuthContext'
+import { Link } from "react-router-dom"
+import { useNavigate } from 'react-router-dom';
+import { EmployerAuth } from '../../contexts/EmployerAuthContext';
 
 function RegistrationForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
-    const [loading, setLoading] = useState(false);
     const {createEmployer} = EmployerAuth();
+    const [error, setError] = useState('');
     const navigate = useNavigate();
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('')
         try{
-            setLoading(true)
             await createEmployer(email, password);
-            navigate('/EmployerHome')
+            localStorage.setItem('jap-email', email);
+            navigate('/EmployerInfo');
         } catch (e) {
             setError('Failed to create an account')
             console.log(e.message)
         }
-        setLoading(false)
     }
 
     return (
