@@ -18,7 +18,6 @@ function LoginForm() {
         try {
             setLoading(true)
             await signInEmployer(email, password);
-            navigate('/EmployerHome')
         } catch (e) {
             setError('Failed to sign in')
             console.log(e.message)

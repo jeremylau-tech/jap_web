@@ -10,7 +10,6 @@ function LoginForm() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
-    const navigate = useNavigate();
     const {signInCandidate} = CandidateAuth();
 
     const handleSubmit = async (e) => {
@@ -19,7 +18,6 @@ function LoginForm() {
         try {
             setLoading(true)
             await signInCandidate(email, password);
-            navigate('/CandidateHome')
         } catch (e) {
             setError('Failed to sign in')
             console.log(e.message)
@@ -47,7 +45,7 @@ function LoginForm() {
                         <input onChange={(e) => setPassword(e.target.value)} className='border rounded p-2' type="password" placeholder='******' required />
                     </div>
                     
-                    <button type='submit' className='border rounded-lg w-full my-4 py-2 bg-blue font-projectFont font-bold text-white hover:bg-blue-500'>
+                    <button disable={loading} type='submit' className='border rounded-lg w-full my-4 py-2 bg-blue font-projectFont font-bold text-white hover:bg-blue-500'>
                         Sign In
                     </button>
                     <div class="flex justify-center items-center mt-6">
