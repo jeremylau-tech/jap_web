@@ -1,17 +1,36 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { TiUser } from 'react-icons/ti'
 import { FiUser, FiBook } from 'react-icons/fi'
+import { db } from '../../utils/init-firebase'
+import { collection, getDocs, doc } from 'firebase/firestore'
+import { CandidateAuth } from '../../contexts/AuthContext'
 
 function Profile() {
-  return (
+    const [profile, setProfile] = useState([]);
+    const candidateCollectionRef = collection(db, "candidate");
+
+    useEffect(() => {
+        const getProfile = async () => {
+            const data = await getDocs(candidateCollectionRef);
+            setProfile(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
+        };
+        getProfile();
+    }, [])
+    
+  
+return (
     <div className='min-h-screen'>
         <div className="flex justify-center avatar placeholder pt-28">
   				<div className="bg-neutral-focus text-neutral-content rounded-full w-24">
 					<TiUser size={60} />
   				</div>
-			</div>  
-        <div className="w-full md:w-9/12 mx-auto pt-6 justify-center"> 
-            <div className="p-6 shadow-xl rounded-md">
+			</div>
+           
+        <div className="w-full md:w-9/12 mx-auto pt-6 justify-center">
+        { profile.map((doc) => {
+                return(
+                    <div>
+                        <div className="p-6 shadow-xl rounded-md">
                 <div className="flex items-center space-x-2 font-semibold leading-8">
                     <FiUser size={22} className='text-blue' />
                     <span className="tracking-wide font-bold font-projectFont text-blue">About</span>
@@ -20,11 +39,11 @@ function Profile() {
                     <div className="grid md:grid-cols-2 text-sm">
                         <div className="grid grid-cols-2">
                             <div className="px-4 py-2 font-semibold">First Name</div>
-                            <div className="px-4 py-2">Jane</div>
+                            <div className="px-4 py-2">{doc.firstName}</div>
                         </div>
                         <div className="grid grid-cols-2">
                             <div className="px-4 py-2 font-semibold">Last Name</div>
-                            <div className="px-4 py-2">Doe</div>
+                            <div className="px-4 py-2">{profile.lastName}</div>
                         </div>
                         <div className="grid grid-cols-2">
                             <div className="px-4 py-2 font-semibold">Gender</div>
@@ -77,6 +96,11 @@ function Profile() {
                     </div>
                 </div>
             </div>
+
+                    </div>
+                );
+            })}
+            
         </div>
         <div className='flex justify-end mt-8 text-center w-full md:w-9/12 mx-auto'>
             <button className='px-8 py-3 mb-16 rounded-lg border font-projectFont text-base font-medium bg-blue text-white hover:bg-blue-500 hover:scale-105 active:bg-blue-200'>Edit Profile</button>
