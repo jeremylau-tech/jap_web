@@ -83,9 +83,6 @@ function Profile() {
                 </div>
             </div>
         </div>
-        <div className='flex justify-end mt-8 text-center w-full md:w-9/12 mx-auto'>
-            <button className='px-8 py-3 mb-16 rounded-lg border font-projectFont text-base font-medium bg-orange text-white hover:bg-orange-500 hover:scale-105 active:bg-orange-200'>Edit Profile</button>
-        </div>
     </div>
   )
 }
