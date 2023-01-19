@@ -15,7 +15,6 @@ import JobForm from './pages/JobForm';
 import CandidateProfile from './pages/CandidateProfile';
 import EmployerProfile from './pages/EmployerProfile';
 import ProtectedRoute from './components/ProtectedRoute';
-import JobForm from './pages/JobForm';
 
 function App() {
   return (
