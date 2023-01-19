@@ -2,17 +2,27 @@ import React, { useState, useEffect } from 'react'
 import { TiUser } from 'react-icons/ti'
 import { FiUser, FiBook } from 'react-icons/fi'
 import { db } from '../../utils/init-firebase'
-import { collection, getDocs, doc } from 'firebase/firestore'
+import { collection, getDocs, getDoc, doc } from 'firebase/firestore'
 import { CandidateAuth } from '../../contexts/AuthContext'
 
 function Profile() {
     const [profile, setProfile] = useState([]);
-    const candidateCollectionRef = collection(db, "candidate");
 
     useEffect(() => {
         const getProfile = async () => {
-            const data = await getDocs(candidateCollectionRef);
-            setProfile(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
+            const email = localStorage.getItem('jap-email');
+            const docRef = doc(db, "candidate", email);
+            console.log(docRef)
+
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+                console.log("Document data:", docSnap.data());
+                setProfile({...docSnap.data()})
+
+            } else {
+                console.log("No such document!");
+            }
         };
         getProfile();
     }, [])
@@ -26,11 +36,8 @@ return (
   				</div>
 			</div>
            
-        <div className="w-full md:w-9/12 mx-auto pt-6 justify-center">
-        { profile.map((doc) => {
-                return(
-                    <div>
-                        <div className="p-6 shadow-xl rounded-md">
+        <div className="w-full md:w-9/12 mx-auto pt-6 justify-center"> 
+            <div className="p-6 shadow-xl rounded-md">
                 <div className="flex items-center space-x-2 font-semibold leading-8">
                     <FiUser size={22} className='text-blue' />
                     <span className="tracking-wide font-bold font-projectFont text-blue">About</span>
@@ -39,7 +46,7 @@ return (
                     <div className="grid md:grid-cols-2 text-sm">
                         <div className="grid grid-cols-2">
                             <div className="px-4 py-2 font-semibold">First Name</div>
-                            <div className="px-4 py-2">{doc.firstName}</div>
+                            <div className="px-4 py-2">{profile.firstName}</div>
                         </div>
                         <div className="grid grid-cols-2">
                             <div className="px-4 py-2 font-semibold">Last Name</div>
@@ -47,28 +54,28 @@ return (
                         </div>
                         <div className="grid grid-cols-2">
                             <div className="px-4 py-2 font-semibold">Gender</div>
-                            <div className="px-4 py-2">Female</div>
+                            <div className="px-4 py-2">{profile.gender}</div>
                         </div>
                         <div className="grid grid-cols-2">
                             <div className="px-4 py-2 font-semibold">Contact Number</div>
-                            <div className="px-4 py-2">+11 998001001</div>
+                            <div className="px-4 py-2">{profile.contactNumber}</div>
                         </div>
                         <div className="grid grid-cols-2">
                             <div className="px-4 py-2 font-semibold">Country</div>
-                            <div className="px-4 py-2">Malaysia</div>
+                            <div className="px-4 py-2">{profile.country}</div>
                         </div>
                         <div className="grid grid-cols-2">
                             <div className="px-4 py-2 font-semibold">State / Province </div>
-                            <div className="px-4 py-2">Penang</div>
+                            <div className="px-4 py-2">{profile.state}</div>
                         </div>
                         <div className="grid grid-cols-2">
                             <div className="px-4 py-2 font-semibold">City</div>
-                            <div className="px-4 py-2">Gelugor</div>
+                            <div className="px-4 py-2">{profile.city}</div>
                         </div>
                         <div className="grid grid-cols-2">
                             <div className="px-4 py-2 font-semibold">Email</div>
                             <div className="px-4 py-2">
-                                <a className="text-blue-200" href="mailto:jane@example.com">jane@example.com</a>
+                                <a className="text-blue-200" href="mailto:jane@example.com">{profile.email}</a>
                             </div>
                         </div>
                     </div>
@@ -83,27 +90,19 @@ return (
                     <div className="grid md:grid-cols-2 text-sm">
                         <div className="grid grid-cols-2">
                             <div className="px-4 py-2 font-semibold">University / Institute</div>
-                            <div className="px-4 py-2">Uni name</div>
+                            <div className="px-4 py-2">{profile.university}</div>
                         </div>
                         <div className="grid grid-cols-2">
                             <div className="px-4 py-2 font-semibold">Qualification</div>
-                            <div className="px-4 py-2">Degree</div>
+                            <div className="px-4 py-2">{profile.qualification}</div>
                         </div>
                         <div className="grid grid-cols-2">
                             <div className="px-4 py-2 font-semibold">Field of Study</div>
-                            <div className="px-4 py-2">Computer Science</div>
+                            <div className="px-4 py-2">{profile.fieldStudy}</div>
                         </div>
                     </div>
                 </div>
             </div>
-
-                    </div>
-                );
-            })}
-            
-        </div>
-        <div className='flex justify-end mt-8 text-center w-full md:w-9/12 mx-auto'>
-            <button className='px-8 py-3 mb-16 rounded-lg border font-projectFont text-base font-medium bg-blue text-white hover:bg-blue-500 hover:scale-105 active:bg-blue-200'>Edit Profile</button>
         </div>
     </div>
     

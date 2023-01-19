@@ -54,6 +54,7 @@ export const AuthContextProvider = ({children}) => {
 
         const docRef = doc(db, "candidate", email);
         const docSnap = await getDoc(docRef);
+        localStorage.setItem('jap-email', email);
 
         if (docSnap.exists()) {
             console.log("Document data:", docSnap.data());           
