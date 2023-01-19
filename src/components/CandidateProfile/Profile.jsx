@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { TiUser } from 'react-icons/ti'
 import { FiUser, FiBook } from 'react-icons/fi'
 import { db } from '../../utils/init-firebase'
-import { collection, getDocs, getDoc, doc } from 'firebase/firestore'
-import { CandidateAuth } from '../../contexts/AuthContext'
+import { getDoc, doc } from 'firebase/firestore'
 
 function Profile() {
     const [profile, setProfile] = useState([]);
@@ -81,7 +80,7 @@ return (
                     </div>
                 </div>
             </div>
-            <div className="p-6 pt-11 shadow-xl rounded-md">
+            <div className="p-6 mb-6 pt-11 shadow-xl rounded-md">
                 <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
                     <FiBook size={22} className='text-blue' />
                     <span className="tracking-wide font-bold font-projectFont text-blue">Education</span>

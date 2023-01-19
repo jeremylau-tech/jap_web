@@ -51,6 +51,7 @@ export const EmployerAuthContextProvider = ({children}) => {
 
         const docRef = doc(db, "employer", email);
         const docSnap = await getDoc(docRef);
+        localStorage.setItem('jap-email', email);
 
         if (docSnap.exists()) {
             console.log("Document data:", docSnap.data());           

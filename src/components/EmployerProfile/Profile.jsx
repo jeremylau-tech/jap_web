@@ -1,9 +1,32 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { HiBuildingOffice } from 'react-icons/hi2';
 import { MdOutlineDescription } from 'react-icons/md'
+import { db } from '../../utils/init-firebase';
+import { getDoc, doc } from 'firebase/firestore';
 
 function Profile() {
-  return (
+    const [profile, setProfile] = useState([]);
+
+    useEffect(() => {
+        const getProfile = async () => {
+            const email = localStorage.getItem('jap-email');
+            const docRef = doc(db, "employer", email);
+            console.log(docRef)
+
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+                console.log("Document data:", docSnap.data());
+                setProfile({...docSnap.data()})
+
+            } else {
+                console.log("No such document!");
+            }
+        };
+        getProfile();
+    }, [])
+
+    return (
     <div className='min-h-screen'>
         <div className="flex justify-center avatar placeholder pt-28">
   				<div className="bg-neutral-focus text-neutral-content rounded-full w-24">
@@ -20,41 +43,41 @@ function Profile() {
                     <div className="grid md:grid-cols-2 text-sm">
                         <div className="grid grid-cols-2">
                             <div className="px-4 py-2 font-semibold">Company Name</div>
-                            <div className="px-4 py-2">Mailo Sdn. Bhd.</div>
+                            <div className="px-4 py-2">{profile.companyName}</div>
                         </div>
                         <div className="grid grid-cols-2">
                             <div className="px-4 py-2 font-semibold">Industry</div>
-                            <div className="px-4 py-2">IT</div>
+                            <div className="px-4 py-2">{profile.industry}</div>
                         </div>
                         <div className="grid grid-cols-2">
                             <div className="px-4 py-2 font-semibold">Company Size</div>
-                            <div className="px-4 py-2">company size</div>
+                            <div className="px-4 py-2">{profile.companySize}</div>
                         </div>
                         <div className="grid grid-cols-2">
                             <div className="px-4 py-2 font-semibold">Founded</div>
-                            <div className="px-4 py-2">2020</div>
+                            <div className="px-4 py-2">{profile.founded}</div>
                         </div>
                         <div className="grid grid-cols-2">
                             <div className="px-4 py-2 font-semibold">Website</div>
-                            <div className="px-4 py-2">www.facebook.com</div>
+                            <div className="px-4 py-2">{profile.companyWebsite}</div>
                         </div>
                         <div className="grid grid-cols-2">
                             <div className="px-4 py-2 font-semibold">Email</div>
                             <div className="px-4 py-2">
-                                <a className="text-blue-200" href="mailto:jane@example.com">jane@example.com</a>
+                                <a className="text-blue-200" href="mailto:jane@example.com">{profile.email}</a>
                             </div>
                         </div>
                         <div className="grid grid-cols-2">
                             <div className="px-4 py-2 font-semibold">Country</div>
-                            <div className="px-4 py-2">Malaysia</div>
+                            <div className="px-4 py-2">{profile.country}</div>
                         </div>
                         <div className="grid grid-cols-2">
-                            <div className="px-4 py-2 font-semibold">State / Province </div>
-                            <div className="px-4 py-2">Penang</div>
+                            <div className="px-4 py-2 font-semibold">State</div>
+                            <div className="px-4 py-2">{profile.state}</div>
                         </div>
                         <div className="grid grid-cols-2">
                             <div className="px-4 py-2 font-semibold">City</div>
-                            <div className="px-4 py-2">Gelugor</div>
+                            <div className="px-4 py-2">{profile.city}</div>
                         </div>
                     </div>
                 </div>
