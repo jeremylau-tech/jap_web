@@ -11,6 +11,7 @@ import CandidateInfo from './pages/CandidateInfo';
 import EmployerInfo from './pages/EmployerInfo';
 import CandidateHome from './pages/CandidateHome';
 import EmployerHome from './pages/EmployerHome';
+import JobForm from './pages/JobForm';
 import CandidateProfile from './pages/CandidateProfile';
 import EmployerProfile from './pages/EmployerProfile';
 import ProtectedRoute from './components/ProtectedRoute';
