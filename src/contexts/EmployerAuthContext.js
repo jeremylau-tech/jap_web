@@ -45,7 +45,11 @@ export const EmployerAuthContextProvider = ({children}) => {
             });
         };
 
-        
+    {
+        /*Check whether if user signing in is employer
+        if true, let user sign in
+        else if false do not let user sign in*/
+    }  
     const signInEmployer = async (email, password) => {
         signInWithEmailAndPassword(auth, email, password);
 

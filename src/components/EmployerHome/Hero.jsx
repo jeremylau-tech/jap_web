@@ -22,12 +22,12 @@ function Hero() {
                         loop
                     />
 			        <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-				        <Link to="/" className="px-8 py-3 text-lg font-projectFont font-semibold rounded-lg shadow-xl bg-white text-orange hover:bg-orange-500 hover:scale-105 hover:text-white active:bg-orange-200">Post Job</Link>
-                        <Link to="/" className="px-8 py-3 text-lg font-projectFont font-semibold rounded-lg shadow-xl bg-white text-orange hover:bg-orange-500 hover:scale-105 hover:text-white active:bg-orange-200">Job List</Link>
+				        <Link to="/" className="px-8 py-3 text-lg border font-projectFont font-semibold rounded-lg shadow-xl bg-white text-orange border-orange hover:bg-orange-500 hover:scale-105 hover:text-white active:bg-orange-200">Post Job</Link>
+                <Link to="/" className="px-8 py-3 text-lg border font-projectFont font-semibold rounded-lg shadow-xl bg-white text-orange border-orange hover:bg-orange-500 hover:scale-105 hover:text-white active:bg-orange-200">Job List</Link>
 			        </div>
-                    <div className="pt-6 flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-				        <Link to="/" className="px-8 py-3 text-lg font-projectFont font-semibold rounded-lg shadow-xl bg-white text-orange hover:bg-orange-500 hover:scale-105 hover:text-white active:bg-orange-200">Candidate Review</Link>
-                    </div>
+              <div className="pt-6 flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
+				        <Link to="/" className="px-8 py-3 text-lg border font-projectFont font-semibold rounded-lg shadow-xl bg-white text-orange border-orange hover:bg-orange-500 hover:scale-105 hover:text-white active:bg-orange-200">Candidate Review</Link>
+              </div>
 		        </div>
 	        </div>
         </section>

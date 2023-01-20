@@ -15,6 +15,9 @@ import CandidateProfile from './pages/CandidateProfile';
 import EmployerProfile from './pages/EmployerProfile';
 import ProtectedRoute from './components/ProtectedRoute';
 import JobForm from './pages/JobForm';
+import EditCandidateProfile from './pages/EditCandidateProfile';
+import EditEmployerProfile from './pages/EditEmployerProfile';
+
 
 function App() {
   return (
@@ -40,8 +43,8 @@ function App() {
           <Route path='/CandidateProfile' element ={<CandidateProfile />} />
           <Route path='/EmployerProfile' element ={<EmployerProfile />} />
           <Route path='/JobForm' element ={<JobForm />} />
-
-          
+          <Route path='/EditCandidateProfile' element ={<EditCandidateProfile />} />
+          <Route path='/EditEmployerProfile' element ={<EditEmployerProfile />} />
         </Routes>
       </AuthContextProvider>
       </EmployerAuthContextProvider>
