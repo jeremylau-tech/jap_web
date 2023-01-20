@@ -65,7 +65,7 @@ function Form() {
 				</div>
 				<div className="col-span-full sm:col-span-3">
 					<label for="first-name" className="font-projectFont font-medium text-sm">First Name</label>
-					<input onChange={(e) => setFirstName(e.target.value)} required id="first-name" type="text" placeholder="First name" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-blue-400" />
+					<input onChange={(e) => setFirstName(e.target.value)} id="first-name" type="text" required placeholder="First name" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-blue-400"  />
 				</div>
 				<div className="col-span-full sm:col-span-3">
 					<label for="last-name" className="font-projectFont font-medium text-sm">Last Name</label>

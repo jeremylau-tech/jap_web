@@ -102,7 +102,7 @@ return (
                 </div>
             </div>
             <div className='flex flex-row-reverse mt-8 m-auto text-center'>
-                <Link to="/EditEmployerProfile" className='px-8 py-3 mb-8 rounded-lg border font-projectFont text-base font-medium bg-orange text-white hover:bg-orange-500 hover:scale-105 active:bg-orange-200'>Edit Profile</Link>
+                <Link to="/EditCandidateProfile" className='px-8 py-3 mb-8 rounded-lg border font-projectFont text-base font-medium bg-orange text-white hover:bg-orange-500 hover:scale-105 active:bg-orange-200'>Edit Profile</Link>
             </div>
         </div>
     </div>
