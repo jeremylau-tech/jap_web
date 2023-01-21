@@ -46,7 +46,9 @@ function App() {
           <Route path='/EmployerHome' element ={<EmployerHome />} />
           <Route path='/CandidateProfile' element ={<CandidateProfile />} />
           <Route path='/EmployerProfile' element ={<EmployerProfile />} />
-          <Route path='/JobForm' element ={<JobForm />} />
+          <Route path='/JobForm' element ={<CreateJobForm />} />
+          <Route path='/EditCandidateProfile' element ={<EditCandidateProfile />} />
+          <Route path='/EditEmployerProfile' element ={<EditEmployerProfile/>} />
 
           
         </Routes>
