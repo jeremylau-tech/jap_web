@@ -1,13 +1,13 @@
 import React from 'react'
 import NavBarCandidate from '../components/NavBarCandidate'
-import Hero from '../components/CandidateHome/Hero'
+import JobForm from '../components/ApplyJobForm/JobForm'
 import Footer from '../components/Footer'
 
 function ApplyJobForm() {
   return (
     <div>
         <NavBarCandidate />
-        <Hero />
+        <JobForm />
         <Footer />
     </div>
   )

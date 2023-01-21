@@ -13,6 +13,7 @@ import CandidateHome from './pages/CandidateHome';
 import EmployerHome from './pages/EmployerHome';
 import NewJob from './pages/NewJob';
 import CreateJobForm from './pages/CreateJobForm';
+import ApplyJobForm from './pages/ApplyJobForm';
 import JobListing from './pages/JobListing';
 import CandidateProfile from './pages/CandidateProfile';
 import EmployerProfile from './pages/EmployerProfile';
@@ -36,6 +37,8 @@ function App() {
           <Route path='/JobListing' element ={<JobListing /> } />
           <Route path='/NewJob' element ={<NewJob /> } />
           <Route path='/EmployerInfo' element ={<EmployerInfo />} />
+          <Route path='/ApplyJobForm' element ={<ApplyJobForm />} />
+          <Route path='/CreateJobForm' element ={<CreateJobForm />} />
           <Route 
             path='/CandidateHome' 
             element ={
@@ -46,7 +49,7 @@ function App() {
           <Route path='/EmployerHome' element ={<EmployerHome />} />
           <Route path='/CandidateProfile' element ={<CandidateProfile />} />
           <Route path='/EmployerProfile' element ={<EmployerProfile />} />
-          <Route path='/JobForm' element ={<CreateJobForm />} />
+          
           <Route path='/EditCandidateProfile' element ={<EditCandidateProfile />} />
           <Route path='/EditEmployerProfile' element ={<EditEmployerProfile/>} />
 

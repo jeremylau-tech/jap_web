@@ -7,7 +7,7 @@ function CreateJobForm(){
     return(
         <div>
             <NavBarEmployer/>
-            <CreateJobForm/>
+            <JobForm/>
             <Footer/>
         </div>
     )
