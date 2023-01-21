@@ -31,8 +31,8 @@ const NavBarEmployer = () => {
                 </Link>
                 <ul className='hidden md:flex font-projectFont text-base font-medium'>
                     <Link to='/EmployerHome' className='p-4 text-blue hover:text-blue-600 hover:scale-105'>Home</Link>
-                    <Link to='/JobForm' className='p-4 text-blue hover:text-blue-600 hover:scale-105'>Post Job</Link>
-                    <Link to='/' className='p-4 text-blue hover:text-blue-600 hover:scale-105'>Job List</Link>
+                    <Link to='/CreateJobForm' className='p-4 text-blue hover:text-blue-600 hover:scale-105'>Post Job</Link>
+                    <Link to='/JobListing' className='p-4 text-blue hover:text-blue-600 hover:scale-105'>Job List</Link>
                     <Link to='/' className='p-4 text-blue hover:text-blue-600 hover:scale-105'>Candidate Review</Link>
                     <Link to='/EmployerProfile' className='p-4 text-blue hover:text-blue-600 hover:scale-105'>Profile</Link>
                 </ul>
