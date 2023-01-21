@@ -45,28 +45,27 @@ export const EmployerAuthContextProvider = ({children}) => {
             });
         };
 
-    {
-        /*Check whether if user signing in is employer
+    {/*Check whether if user signing in is employer
         if true, let user sign in
-        else if false do not let user sign in*/
-    }  
-    const signInEmployer = async (email, password) => {
-        signInWithEmailAndPassword(auth, email, password);
-
-        const docRef = doc(db, "employer", email);
-        const docSnap = await getDoc(docRef);
-        localStorage.setItem('jap-email', email);
-
-        if (docSnap.exists()) {
-            console.log("Document data:", docSnap.data());           
-            navigate('/EmployerHome');
-
-        } else {
-        // doc.data() will be undefined in this case
-            console.log("You haven't registered as employer yet. Create an account now!");
+        else if false do not let user sign in*/}
+        const signInEmployer = async (email, password) => {
+            signInWithEmailAndPassword(auth, email, password);
+    
+            const docRef = doc(db, "employer", email);
+            const docSnap = await getDoc(docRef);
+            localStorage.setItem('jap-email', email);
+    
+            if (docSnap.exists()) {
+                console.log("Document data:", docSnap.data());           
+                navigate('/EmployerHome');
+    
+            } else {
+            // doc.data() will be undefined in this case
+                console.log("You haven't registered as employer yet. Create an account now!");
+                navigate('/SignUpEmployer');
+            }
         }
-        
-    }
+    
 
     const logoutEmployer = () => {
         return signOut(auth);

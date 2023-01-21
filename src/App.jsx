@@ -14,7 +14,6 @@ import EmployerHome from './pages/EmployerHome';
 import JobForm from './pages/JobForm';
 import CandidateProfile from './pages/CandidateProfile';
 import EmployerProfile from './pages/EmployerProfile';
-import ProtectedRoute from './components/ProtectedRoute';
 import EditCandidateProfile from './pages/EditCandidateProfile';
 import EditEmployerProfile from './pages/EditEmployerProfile';
 
@@ -32,13 +31,7 @@ function App() {
           <Route path='/SignUpEmployer' element ={<SignUpEmployer /> } />
           <Route path='/CandidateInfo' element ={<CandidateInfo /> } />
           <Route path='/EmployerInfo' element ={<EmployerInfo />} />
-          <Route 
-            path='/CandidateHome' 
-            element ={
-              <ProtectedRoute>
-                <CandidateHome />
-              </ProtectedRoute>
-            } />
+          <Route path='/CandidateHome' element ={<CandidateHome />} />
           <Route path='/EmployerHome' element ={<EmployerHome />} />
           <Route path='/CandidateProfile' element ={<CandidateProfile />} />
           <Route path='/EmployerProfile' element ={<EmployerProfile />} />
@@ -55,6 +48,26 @@ function App() {
 export default App;
 
 /**
+import ProtectedRoute from './components/ProtectedRoute';
+
+ <Route 
+            path='/EmployerHome' 
+            element ={
+              <ProtectedRoute>
+                <EmployerHome />
+              </ProtectedRoute>
+            } />
+
+            <Route 
+            path='/CandidateHome' 
+            element ={
+              <ProtectedRoute>
+                <CandidateHome />
+              </ProtectedRoute>
+            } />
+
+
+
 import './App.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
