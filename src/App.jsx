@@ -17,6 +17,9 @@ import JobListing from './pages/JobListing';
 import CandidateProfile from './pages/CandidateProfile';
 import EmployerProfile from './pages/EmployerProfile';
 import ProtectedRoute from './components/ProtectedRoute';
+import EditCandidateProfile from './pages/EditCandidateProfile';
+import EditEmployerProfile from './pages/EditEmployerProfile';
+
 
 function App() {
   return (
@@ -43,7 +46,7 @@ function App() {
           <Route path='/EmployerHome' element ={<EmployerHome />} />
           <Route path='/CandidateProfile' element ={<CandidateProfile />} />
           <Route path='/EmployerProfile' element ={<EmployerProfile />} />
-          <Route path='/JobForm' element ={<CreateJobForm />} />
+          <Route path='/JobForm' element ={<JobForm />} />
 
           
         </Routes>
