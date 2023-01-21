@@ -15,12 +15,12 @@ function Form() {
 	const [city, setCity] = useState('');
 	const [error, setError] = useState('');
 	const navigate = useNavigate();
+    const email = localStorage.getItem('jap-email');
 
 	const handleSubmit = async (e) => {
         e.preventDefault();
         setError('')
         try{
-            const email = localStorage.getItem('jap-email');
             const docRef = doc(db, "employer", email);
 			console.log(docRef)
 			await updateDoc(docRef, {
@@ -33,7 +33,7 @@ function Form() {
 				state : state,
 				city : city,
 			});
-			navigate('/EmployerHome');
+			navigate('/EmployerProfile');
         } catch (e) {
             setError('Failed to save the profile.')
             console.log(e.message)
@@ -54,7 +54,11 @@ function Form() {
 				</div> 
 			</div>
 			<div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3 justify-center text-black">
-				<div className="col-span-full">
+                <div className="col-span-full">
+					<label for="university" className="font-projectFont font-medium text-sm">Email</label>
+                    <div className='w-full font-projectFont'>{email}</div>
+				</div>
+                <div className="col-span-full">
 					<label for="company-name" className="font-projectFont font-medium text-sm">Company Name</label>
 					<input onChange={(e) => setCompanyName(e.target.value)} id="company-name" type="text" placeholder="Example Sdn. Bhd." className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-orange-400" />
 				</div>

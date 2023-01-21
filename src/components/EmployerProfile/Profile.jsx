@@ -3,6 +3,7 @@ import { HiBuildingOffice } from 'react-icons/hi2';
 import { MdOutlineDescription } from 'react-icons/md'
 import { db } from '../../utils/init-firebase';
 import { getDoc, doc } from 'firebase/firestore';
+import { Link } from 'react-router-dom';
 
 function Profile() {
     const [profile, setProfile] = useState([]);
@@ -63,9 +64,7 @@ function Profile() {
                         </div>
                         <div className="grid grid-cols-2">
                             <div className="px-4 py-2 font-semibold">Email</div>
-                            <div className="px-4 py-2">
-                                <a className="text-blue-200" href="mailto:jane@example.com">{profile.email}</a>
-                            </div>
+                            <div className="px-4 py-2">{profile.email}</div>
                         </div>
                         <div className="grid grid-cols-2">
                             <div className="px-4 py-2 font-semibold">Country</div>
@@ -81,6 +80,9 @@ function Profile() {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className='flex flex-row-reverse mt-8 m-auto text-center'>
+                <Link to="/EditEmployerProfile" className='px-8 py-3 mb-8 rounded-lg border font-projectFont text-base font-medium bg-blue text-white hover:bg-blue-500 hover:scale-105 active:bg-blue-200'>Edit Profile</Link>
             </div>
         </div>
     </div>

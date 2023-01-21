@@ -35,11 +35,11 @@ function LoginForm() {
                     <h2 className='text-xl text-black md:text-2xl font-projectFont font-extrabold text-center mb-8'>Sign In to your company account</h2>
                     <div className='flex flex-col py-2'>
                         <label className='font-projectFont text-black text-sm font-normal'>Company Email Address</label>
-                        <input onChange={(e) => setEmail(e.target.value)} className='border rounded p-2' type="email" placeholder='example@company.com' />
+                        <input onChange={(e) => setEmail(e.target.value)} className='border rounded p-2' type="email" placeholder='example@company.com' required />
                     </div>
                     <div className='flex flex-col py-2'>
                         <label className='font-projectFont text-black text-sm font-normal'>Password</label>
-                        <input onChange={(e) => setPassword(e.target.value)} className='border rounded p-2' type="password" placeholder='******' />
+                        <input onChange={(e) => setPassword(e.target.value)} className='border rounded p-2' type="password" placeholder='******' required />
                     </div>
                     
                     <button className='border rounded-lg w-full my-4 py-2 bg-orange font-projectFont font-bold text-white hover:bg-orange-500'>
