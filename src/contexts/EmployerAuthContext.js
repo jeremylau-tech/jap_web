@@ -63,7 +63,7 @@ export const EmployerAuthContextProvider = ({children}) => {
 
         } else {
         // doc.data() will be undefined in this case
-            console.log("You haven't registered as employer yet!");
+            console.log("You haven't registered as employer yet. Create an account now!");
         }
         
     }
