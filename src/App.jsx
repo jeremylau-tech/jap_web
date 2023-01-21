@@ -21,7 +21,6 @@ import ProtectedRoute from './components/ProtectedRoute';
 import EditCandidateProfile from './pages/EditCandidateProfile';
 import EditEmployerProfile from './pages/EditEmployerProfile';
 
-
 function App() {
   return (
     <div className="App">
@@ -39,17 +38,10 @@ function App() {
           <Route path='/EmployerInfo' element ={<EmployerInfo />} />
           <Route path='/ApplyJobForm' element ={<ApplyJobForm />} />
           <Route path='/CreateJobForm' element ={<CreateJobForm />} />
-          <Route 
-            path='/CandidateHome' 
-            element ={
-              <ProtectedRoute>
-                <CandidateHome />
-              </ProtectedRoute>
-            } />
+          <Route path='/CandidateHome' element ={<CandidateHome />} />
           <Route path='/EmployerHome' element ={<EmployerHome />} />
           <Route path='/CandidateProfile' element ={<CandidateProfile />} />
           <Route path='/EmployerProfile' element ={<EmployerProfile />} />
-          
           <Route path='/EditCandidateProfile' element ={<EditCandidateProfile />} />
           <Route path='/EditEmployerProfile' element ={<EditEmployerProfile/>} />
 
@@ -61,12 +53,4 @@ function App() {
   );
 }
 
-export default App;
-
-
-
-
-
-
-    
-  
+export default App;
