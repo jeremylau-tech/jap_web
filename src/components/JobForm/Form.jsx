@@ -1,7 +1,6 @@
 import React from 'react'
 
-
-function Form() {
+function JobForm() {
   return (
     <section className="p-6">
         <h2 className='text-xl md:text-2xl lg:3xl font-projectFont font-bold text-center text-orange mt-24 mb-8'>Create New Job</h2>
@@ -16,16 +15,9 @@ function Form() {
 					<label for="salary" className="font-projectFont font-medium text-sm">Salary (RM) </label>
 					<input id="salary" type="number" placeholder="5000" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-orange-400" />
 				</div>
-                <div className="col-span-full sm:col-span-2">
-					<label for="working-country" className="font-projectFont font-medium text-sm">Location: Country</label>
-                    <select id="working-country" className="select-bordered w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-orange-400">
-                        <option disabled selected>Select</option>
-                        <option>Malaysia</option>
-                        <option>Singapore</option>
-                    </select>
-                </div>
-                <div className="col-span-full sm:col-span-2">
-					<label for="working-state" className="font-projectFont font-medium text-sm">State</label>
+
+                <div className="col-span-full sm:col-span-3">
+					<label for="working-state" className="font-projectFont font-medium text-sm">Location: State</label>
                     <select id="working-state" className="select-bordered w-full max-w-xs font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-orange-400">
                         <option disabled selected>Select</option>
                         <option>Johor</option>
@@ -44,7 +36,7 @@ function Form() {
                         <option>Terengganu</option>
                     </select>
                 </div>
-                <div className="col-span-full sm:col-span-2">
+                <div className="col-span-full sm:col-span-3">
 					<label for="location-city" className="font-projectFont font-medium text-sm">City</label>
 					<input id="location-city" type="text" placeholder="City" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-orange-400" />
 				</div>
@@ -100,4 +92,4 @@ function Form() {
   )
 }
 
-export default Form
+export default JobForm;

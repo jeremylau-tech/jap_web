@@ -1,16 +1,16 @@
 import React from 'react';
 import NavBarEmployer from '../components/NavBarEmployer';
-import Form from '../components/JobForm/Form';
+import JobForm from '../components/CreateJobForm/JobForm';
 import Footer from '../components/Footer';
 
-function JobForm (){
+function CreateJobForm(){
     return(
         <div>
             <NavBarEmployer/>
-            <Form/>
+            <CreateJobForm/>
             <Footer/>
         </div>
     )
 }
 
-export default JobForm;
+export default CreateJobForm;

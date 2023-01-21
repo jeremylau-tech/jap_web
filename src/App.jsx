@@ -11,7 +11,9 @@ import CandidateInfo from './pages/CandidateInfo';
 import EmployerInfo from './pages/EmployerInfo';
 import CandidateHome from './pages/CandidateHome';
 import EmployerHome from './pages/EmployerHome';
-import JobForm from './pages/JobForm';
+import NewJob from './pages/NewJob';
+import CreateJobForm from './pages/CreateJobForm';
+import JobListing from './pages/JobListing';
 import CandidateProfile from './pages/CandidateProfile';
 import EmployerProfile from './pages/EmployerProfile';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -28,6 +30,8 @@ function App() {
           <Route path='/SignInEmployer' element ={<SignInEmployer />} />
           <Route path='/SignUpEmployer' element ={<SignUpEmployer /> } />
           <Route path='/CandidateInfo' element ={<CandidateInfo /> } />
+          <Route path='/JobListing' element ={<JobListing /> } />
+          <Route path='/NewJob' element ={<NewJob /> } />
           <Route path='/EmployerInfo' element ={<EmployerInfo />} />
           <Route 
             path='/CandidateHome' 
@@ -39,7 +43,7 @@ function App() {
           <Route path='/EmployerHome' element ={<EmployerHome />} />
           <Route path='/CandidateProfile' element ={<CandidateProfile />} />
           <Route path='/EmployerProfile' element ={<EmployerProfile />} />
-          <Route path='/JobForm' element ={<JobForm />} />
+          <Route path='/JobForm' element ={<CreateJobForm />} />
 
           
         </Routes>
@@ -51,31 +55,6 @@ function App() {
 
 export default App;
 
-/**
-import './App.css';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import SignUp from './pages/SignUp';
-import NavBarCandidate from './components/NavBarCandidate';
-import SignInCandidate from './pages/SignInCandidate';
-
-function App() {
-  return (
-    <div className="App">
-      <NavBarCandidate/>
-      <Routes>
-        <Route path='/' element ={<Home />} />
-        <Route path='/SignUp' element ={<SignUp />} />
-      </Routes>
-    <Footer />
-  </div>
-);
-}
-
-export default App;
- */
 
 
 
