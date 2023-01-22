@@ -28,7 +28,7 @@ function Layout() {
 			</div>  
         <div className="w-full md:w-9/12 mx-auto pt-6 justify-center"> 
         
-        { job.map((doc) => {
+        { job.map((doc) => { 
 
             return( 
             

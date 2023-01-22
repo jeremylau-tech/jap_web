@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
-import { doc, setDoc } from "firebase/firestore";
-import { db } from '../../utils/init-firebase';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
+import { db } from '../../utils/init-firebase'
+import { collection, getDocs, doc, setDoc, getDoc } from 'firebase/firestore'
+import { Link, useNavigate } from 'react-router-dom'
 
 function JobForm() {
-	const [title, setTitle] = useState('');
+    const [job, setJob] = useState([]);
+    const candidateColectionRef = collection(db, "job");
+
+    const [title, setTitle] = useState('');
 	const [location, setLocation] = useState('');
 	const [type, setType] = useState('');
 	const [cgpa, setCgpa] = useState('');
@@ -17,14 +20,14 @@ function JobForm() {
 	const [description, setDescription] = useState('');
 	const [error, setError] = useState('');
 
-	const navigate = useNavigate();
+    const navigate = useNavigate();
 
 	const handleSubmit = async (e) => {
         e.preventDefault();
         setError('')
         try{
             // const title = localStorage.getItem('jap-email');
-            const docRef = doc(db, "job", title);
+            const docRef = doc(db, "job1", title);
 			console.log(docRef); 
 			await setDoc(docRef, {
   				title : title,
@@ -48,131 +51,144 @@ function JobForm() {
         }
     }
 
-	return (
+    
+    useEffect(() => {
+    const getJob = async () => {
+        const data = await getDocs(candidateColectionRef);
+        setJob(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
+        
+        const title = localStorage.getItem('jap-title');
+            const docRef = doc(db, "job", title);
+            console.log(docRef)
+
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+                console.log("Document data:", docSnap.data());
+                setJob({...docSnap.data()})
+
+            } else {
+                console.log("No such document!");
+            }
+    };
+    getJob();
+    
+
+    }, [])
+
+	return(
+
+    <div className='min-h-screen'>
+    <div className="w-full md:w-9/12 mx-auto pt-6 justify-center"> 
+
+    { job.map((doc) => {
+
+    return(
+    
+    <div key={doc.id}>
     <section className="p-6">
-        <h2 className='text-xl md:text-2xl lg:3xl font-projectFont font-bold text-center text-blue mt-24 mb-8'>Apply For A Job Now</h2>
+        <h2 className='text-xl md:text-2xl lg:3xl font-projectFont font-bold text-center text-blue mt-24 mb-8'>Job Application : {doc.title}</h2>
         <form onSubmit={handleSubmit} 
 				novalidate="" action="" 
 				className="container flex flex-col items-center mx-auto font-projectFont space-y-12 ng-untouched ng-pristine ng-valid content-center">
 		    <fieldset className="flex gap-6 p-6 rounded-lg shadow-2xl text-black items-center justify-center content-center">
 			
 			<div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3 justify-center items-center content-center">
-				<div className="col-span-full sm:col-span-3">
-					<label for="type" className="font-projectFont font-medium text-sm">Job Type</label>
+                <div className="col-span-full sm:col-span-3">
+					<label for="type" className="font-projectFont font-medium text-sm">Do you accept the work type: {doc.type}</label>
                     <select onChange={(e) => setType(e.target.value)} className="w-full p-2 font-projectFont text-base bg-white border rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-blue-400">
                         <option disabled selected>Select</option>
-                        <option>Internship</option>
-                        <option>Full Time</option>
+                        <option>Yes</option>
+                        <option>No</option>
                     </select>
 				</div>
 
 				<div className="col-span-full sm:col-span-3">
-					<label for="cgpa" className="font-projectFont font-medium text-sm">CGPA</label>
+					<label for="cgpa" className="font-projectFont font-medium text-sm">Does your CGPA fulfill {doc.cgpa} and above?</label>
                     <select onChange={(e) => setCgpa(e.target.value)} className="w-full p-2 font-projectFont text-base bg-white border rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-blue-400">
                         <option disabled selected>Select</option>
-                        <option>3.80 - 4.00</option>
-                        <option>3.50 - 3.80</option>
-						<option>3.20 - 3.50</option>
-                        <option>3.00 - 3.20</option>
-						<option>2.80 - 3.00</option>
-                        <option>2.50 - 2.80</option>
-                        <option>2.00 - 2.50</option>
-                        <option>1.50 - 2.00</option>
-                        <option>1.00 - 1.50</option>
+                        <option>Yes</option>
+                        <option>No</option>
                     </select>
 				</div>
 
 				<div className="col-span-full sm:col-span-3">
-					<label for="level" className="font-projectFont font-medium text-sm">Education Level</label>
+					<label for="level" className="font-projectFont font-medium text-sm">Does your education background fulfill {doc.level} and above?</label>
                     <select onChange={(e) => setLevel(e.target.value)} className="w-full p-2 font-projectFont text-base bg-white border rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-blue-400">
                         <option disabled selected>Select</option>
-                        <option>PHD</option>
-                        <option>Master</option>
-                        <option>Bachelor Degree</option>
-                        <option>Diploma</option>
+                        <option>Yes</option>
+                        <option>No</option>
                     </select>
 				</div>
 
 				<div className="col-span-full sm:col-span-3">
-					<label for="techStack" className="font-projectFont font-medium text-sm">Preferred Tech Stack</label>
+					<label for="techStack" className="font-projectFont font-medium text-sm">Are you experienced in {doc.techStack}?</label>
                     <select onChange={(e) => setTechStack(e.target.value)} className="w-full p-2 font-projectFont text-base bg-white border rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-blue-400">
                         <option disabled selected>Select</option>
-                        <option>LAMP: Linux, Apache, MySQL, PHP</option>
-                        <option>MEAN: MongoDB, Express.js, AngularJS, Node.js</option>
-                        <option>MERN: MongoDB, Express.js, ReactJS, Node.js</option>
-                        <option>MEVN: MongoDB, Express.js,VueJS, Node.js</option>
-                        <option>Ruby on Rails: Ruby, Rails, Rack, Passenger</option>
-                        <option>.NET: .NET, MS SQL Server</option>
-                        <option>Java: Java, MySQL</option>
-                        <option>ASP.net: ASP.NET MVC, IIS, Microsoft Azure, SQL Server</option>
+                        <option>Yes</option>
+                        <option>No</option>
                     </select>
 				</div>
 
 				<div className="col-span-full sm:col-span-3">
-					<label for="prototype" className="font-projectFont font-medium text-sm">Prototyping Tool</label>
+					<label for="prototype" className="font-projectFont font-medium text-sm">Are you experienced in {doc.prototype}?</label>
                     <select onChange={(e) => setPrototype(e.target.value)} className="w-full p-2 font-projectFont text-base bg-white border rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-blue-400">
                         <option disabled selected>Select</option>
-                        <option>Figma</option>
-                        <option>Adobe XD</option>
-                        <option>InVision Studio</option>
-                        <option>Webflow</option>
-                        <option>Axure RP</option>
-                        <option>Origami Studio</option>
-                        <option>Justinmind</option>
-                        <option>Sketch</option>
+                        <option>Yes</option>
+                        <option>No</option>
                     </select>
 				</div>
 
 				<div className="col-span-full sm:col-span-3">
-					<label for="editor" className="font-projectFont font-medium text-sm">Code Editor</label>
+					<label for="editor" className="font-projectFont font-medium text-sm">Are you experienced in {doc.editor}</label>
                     <select onChange={(e) => setEditor(e.target.value)} className="w-full p-2 font-projectFont text-base bg-white border rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-blue-400">
                         <option disabled selected>Select</option>
-                        <option>Visual Studio Code</option>
-                        <option>Atom</option>
-                        <option>NetBeans</option>
-                        <option>Notepad++</option>
-                        <option>Webuilder</option>
+                        <option>Yes</option>
+                        <option>No</option>
                     </select>
 				</div>
 
 				<div className="col-span-full sm:col-span-3">
-					<label for="dataScience" className="font-projectFont font-medium text-sm">Data Science</label>
+					<label for="dataScience" className="font-projectFont font-medium text-sm">Are you experienced in {doc.dataScience}?</label>
                     <select onChange={(e) => setDataScience(e.target.value)} className="w-full p-2 font-projectFont text-base bg-white border rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-blue-400">
                         <option disabled selected>Select</option>
-                        <option>Python</option>
-                        <option>PyTorch</option>
-                        <option>OpenCV</option>
-                        <option>ONNX</option>
+                        <option>Yes</option>
+                        <option>No</option>
                     </select>
 				</div>
 	
 				<div className="col-span-full sm:col-span-3 flex flex-col space-y-1">
-					<label for="infrastructure" className="font-projectFont font-medium text-sm">Infrastructure</label>
+					<label for="infrastructure" className="font-projectFont font-medium text-sm">Are you experienced in {doc.infrastructure}?</label>
 					<select onChange={(e) => setInfrastructure(e.target.value)} id="infrastructure" type="text" placeholder="Infrastructure" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-blue-400">
-					<option disabled selected>Select</option>
-                        <option>Amazon Web Services</option>
-                        <option>Microsoft Azure</option>
-                        <option>Google Cloud Services</option>
+					    <option disabled selected>Select</option>
+                        <option>Yes</option>
+                        <option>No</option>
                     </select>
 				</div>
 
 				<div className="col-span-full sm:col-span-3">
-					<label for="description" className="font-projectFont font-medium text-sm">Job Description (To be displayed)</label>
-					<input onChange={(e) => setDescription(e.target.value)} id="description" type="text" placeholder="Job Description" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-blue-400" />
+					<label for="description" className="font-projectFont font-medium text-sm">Job Description of {doc.title}</label>
+                    <div>
+                    <h5 className='font-projectFont font-medium text-sm'>{doc.description}</h5>
+                    </div>
 				</div>
 
 				</div>
 				</fieldset>
-		    
 
 			<div className='space-y-2 col-span-full lg:col-span-1  mt-8 '>
             <button className='px-8 py-3 mb-8 rounded-lg border font-projectFont text-base font-medium bg-blue text-white hover:bg-blue-500 hover:scale-105 active:bg-blue-200'>Save</button>
         </div>
 	    </form>
         
+    </section>
+    </div>
+       );
 
-</section>
-
+       
+    })}
+    </div>
+    </div>
   )
 }
 

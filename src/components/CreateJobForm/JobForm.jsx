@@ -182,8 +182,8 @@ function JobForm() {
 				</div>
 
 				<div className="col-span-full sm:col-span-3">
-					<label for="description" className="font-projectFont font-medium text-sm">Job Description (To be displayed)</label>
-					<input onChange={(e) => setDescription(e.target.value)} id="description" type="text" placeholder="Job Description" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-blue-400" />
+					<label for="description" className="font-projectFont font-medium text-sm">Job Description (Write in point form)</label>
+					<textarea onChange={(e) => setDescription(e.target.value)} id="description" type="text" placeholder="Job Description" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-blue-400" />
 				</div>
 
 				</div>
