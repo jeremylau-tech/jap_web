@@ -35,7 +35,7 @@ export const AuthContextProvider = ({children}) => {
             })
             .catch((error) => {
                 if(error.code == "auth/email-already-in-use") {
-                    setError("email is already in use, try another email");
+                    setError("The email is already in use. Please enter another email.");
                 }
                 else if(error.code === AuthErrorCodes.WEAK_PASSWORD) {
                     setError("Password must be 6 characters!");
@@ -62,7 +62,8 @@ export const AuthContextProvider = ({children}) => {
 
         } else {
         // doc.data() will be undefined in this case
-            console.log("You haven't registered as candidate yet!");
+            console.log("You haven't registered as candidate yet. Create an account now!");
+            navigate('/SignUpCandidate');
         }
     }
 

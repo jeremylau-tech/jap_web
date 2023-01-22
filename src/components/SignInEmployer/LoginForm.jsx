@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import employer from '../../assets/employer.png'
 import { BiUserPlus } from 'react-icons/bi'
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { EmployerAuth } from '../../contexts/EmployerAuthContext'
 
 function LoginForm() {
@@ -9,7 +9,6 @@ function LoginForm() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
-    const navigate = useNavigate();
     const {signInEmployer} = EmployerAuth();
 
     const handleSubmit = async (e) => {
@@ -42,7 +41,7 @@ function LoginForm() {
                         <input onChange={(e) => setPassword(e.target.value)} className='border rounded p-2' type="password" placeholder='******' required />
                     </div>
                     
-                    <button className='border rounded-lg w-full my-4 py-2 bg-orange font-projectFont font-bold text-white hover:bg-orange-500'>
+                    <button disable={loading} className='border rounded-lg w-full my-4 py-2 bg-orange font-projectFont font-bold text-white hover:bg-orange-500'>
                         Sign In
                     </button>
                     <div class="flex justify-center items-center mt-6">
