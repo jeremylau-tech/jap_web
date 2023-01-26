@@ -32,8 +32,8 @@ const NavBarEmployer = () => {
                 <ul className='hidden md:flex font-projectFont text-base font-medium'>
                     <Link to='/EmployerHome' className='p-4 text-blue hover:text-blue-600 hover:scale-105'>Home</Link>
                     <Link to='/CreateJobForm' className='p-4 text-blue hover:text-blue-600 hover:scale-105'>Post Job</Link>
-                    <Link to='/JobListing' className='p-4 text-blue hover:text-blue-600 hover:scale-105'>Job List</Link>
-                    <Link to='/' className='p-4 text-blue hover:text-blue-600 hover:scale-105'>Candidate Review</Link>
+                    <Link to='/JobListingEmployer' className='p-4 text-blue hover:text-blue-600 hover:scale-105'>Job List</Link>
+                    <Link to='/ApplicantListing' className='p-4 text-blue hover:text-blue-600 hover:scale-105'>Candidate Review</Link>
                     <Link to='/EmployerProfile' className='p-4 text-blue hover:text-blue-600 hover:scale-105'>Profile</Link>
                 </ul>
             </div>
@@ -50,9 +50,9 @@ const NavBarEmployer = () => {
 
         <ul className={!nav ? 'hidden' : 'absolute bg-white w-full px-8 md:hidden'}>
             <Link to='/EmployerHome' className='flex p-4 font-projectFont text-base font-medium text-blue hover:bg-blue-100 hover:text-white px-3 py-2 rounded-md active:bg-blue-200'>Home</Link>
-            <Link to='/' className='flex p-4 font-projectFont text-base font-medium text-blue hover:bg-blue-100 hover:text-white px-3 py-2 rounded-md active:bg-blue-200'>Post Job</Link>
-            <Link to='/' className='flex p-4 font-projectFont text-base font-medium text-blue hover:bg-blue-100 hover:text-white px-3 py-2 rounded-md active:bg-blue-200'>Job List</Link>
-            <Link to='/' className='flex p-4 font-projectFont text-base font-medium text-blue hover:bg-blue-100 hover:text-white px-3 py-2 rounded-md active:bg-blue-200'>Candidate Review</Link>
+            <Link to='/CreateJobForm' className='flex p-4 font-projectFont text-base font-medium text-blue hover:bg-blue-100 hover:text-white px-3 py-2 rounded-md active:bg-blue-200'>Post Job</Link>
+            <Link to='/JobListingEmployer' className='flex p-4 font-projectFont text-base font-medium text-blue hover:bg-blue-100 hover:text-white px-3 py-2 rounded-md active:bg-blue-200'>Job List</Link>
+            <Link to='/ApplicantListing' className='flex p-4 font-projectFont text-base font-medium text-blue hover:bg-blue-100 hover:text-white px-3 py-2 rounded-md active:bg-blue-200'>Candidate Review</Link>
             <Link to='/EmployerProfile' className='flex p-4 font-projectFont text-base font-medium text-blue hover:bg-blue-100 hover:text-white px-3 py-2 rounded-md active:bg-blue-200'>Profile</Link>
             <div className='flex flex-col my-4 text-center'>                
                 <button onClick={handleLogout} className='px-8 py-3 rounded-lg border font-projectFont text-base font-medium bg-blue text-white hover:bg-white hover:text-blue hover:border-blue active:text-blue-200 active:scale-105'>Sign Out</button>

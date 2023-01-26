@@ -15,9 +15,11 @@ import NewJob from './pages/NewJob';
 import CreateJobForm from './pages/CreateJobForm';
 import ApplyJobForm from './pages/ApplyJobForm';
 import JobListing from './pages/JobListing';
+import JobListingEmployer from './pages/JobListingEmployer';
 import CandidateProfile from './pages/CandidateProfile';
+import CandidateProfileEmployer from './pages/CandidateProfileEmployer';
 import EmployerProfile from './pages/EmployerProfile';
-import ProtectedRoute from './components/ProtectedRoute';
+import ApplicantListing from './pages/ApplicantListing';
 import EditCandidateProfile from './pages/EditCandidateProfile';
 import EditEmployerProfile from './pages/EditEmployerProfile';
 
@@ -29,11 +31,13 @@ function App() {
         <Routes> {/** outside Routes: display for all pages */}
           <Route path='/' element ={<Home />} />
           <Route path='/SignInCandidate' element ={<SignInCandidate />} />
+          <Route path='/ApplicantListing' element ={<ApplicantListing />} />
           <Route path='/SignUpCandidate' element ={<SignUpCandidate /> } />
           <Route path='/SignInEmployer' element ={<SignInEmployer />} />
           <Route path='/SignUpEmployer' element ={<SignUpEmployer /> } />
           <Route path='/CandidateInfo' element ={<CandidateInfo /> } />
           <Route path='/JobListing' element ={<JobListing /> } />
+          <Route path='/JobListingEmployer' element ={<JobListingEmployer /> } />
           <Route path='/NewJob' element ={<NewJob /> } />
           <Route path='/EmployerInfo' element ={<EmployerInfo />} />
           <Route path='/ApplyJobForm' element ={<ApplyJobForm />} />
@@ -41,6 +45,7 @@ function App() {
           <Route path='/CandidateHome' element ={<CandidateHome />} />
           <Route path='/EmployerHome' element ={<EmployerHome />} />
           <Route path='/CandidateProfile' element ={<CandidateProfile />} />
+          <Route path='/CandidateProfileEmployer' element ={<CandidateProfileEmployer />} />
           <Route path='/EmployerProfile' element ={<EmployerProfile />} />
           <Route path='/EditCandidateProfile' element ={<EditCandidateProfile />} />
           <Route path='/EditEmployerProfile' element ={<EditEmployerProfile/>} />

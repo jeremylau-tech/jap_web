@@ -22,7 +22,7 @@ function Hero() {
                         loop
                     />
 			        <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-				        <Link to="/" className="px-8 py-3 text-lg border font-projectFont font-semibold rounded-lg shadow-xl border-blue bg-white text-blue hover:bg-blue hover:scale-105 hover:text-white duration-200 active:bg-blue-200">Job Search</Link>
+				        <Link to="/JobListing" className="px-8 py-3 text-lg border font-projectFont font-semibold rounded-lg shadow-xl border-blue bg-white text-blue hover:bg-blue hover:scale-105 hover:text-white duration-200 active:bg-blue-200">Job Search</Link>
 			        </div>
 		        </div>
 	        </div>
