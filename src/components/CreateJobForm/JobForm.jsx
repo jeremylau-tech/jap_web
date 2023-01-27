@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { db } from '../../utils/init-firebase';
 import { useNavigate } from 'react-router-dom';
+import { useToast } from '@chakra-ui/react'
 
 function JobForm() {
 	const [title, setTitle] = useState('');
@@ -20,6 +21,7 @@ function JobForm() {
 	const [company, setCompany] = useState('');
 
 	const navigate = useNavigate();
+    const toast = useToast();
 
 	const handleSubmit = async (e) => {
         e.preventDefault();
@@ -42,11 +44,19 @@ function JobForm() {
 				infrastructure : infrastructure,
 				description : description,
 			});
+            toast({
+                status: 'success',
+                description: "Successfully create the Job!"
+            })
 			navigate('/EmployerHome');
             localStorage.setItem('title', title);
 
         } catch (e) {
-            setError('Failed to create a job')
+            setError('Failed to create the Job!');
+			toast({
+                status: 'error',
+                description: "Failed to create the Job!"
+            }) 
             console.log(e.message)
         }
     }
@@ -77,7 +87,7 @@ function JobForm() {
 
 	return (
     <section className="p-6">
-        <h2 className='text-xl md:text-2xl lg:3xl font-projectFont font-bold text-center text-blue mt-24 mb-8'>Create A Job</h2>
+        <h2 className='text-xl md:text-2xl lg:3xl font-projectFont font-bold text-center text-orange mt-24 mb-8'>Create A Job</h2>
         <form onSubmit={handleSubmit} 
 				novalidate="" action="" 
 				className="container flex flex-col items-center mx-auto font-projectFont space-y-12 ng-untouched ng-pristine ng-valid content-center">
@@ -87,7 +97,7 @@ function JobForm() {
 				
                 <div className="col-span-full sm:col-span-3">
                     <label for="company" className="font-projectFont font-medium text-sm">Company*</label>
-                    <select onChange={(e) => setCompany(e.target.value)} id="company"  placeholder="Name" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-blue-400" required >
+                    <select onChange={(e) => setCompany(e.target.value)} id="company"  placeholder="Name" className="w-full p-2 font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-orange-400" required >
 					<option disabled selected>Select</option>
                         <option>{profile.companyName}</option>
                     </select>
@@ -96,7 +106,7 @@ function JobForm() {
 
                 <div className="col-span-full sm:col-span-3">
                     <label for="email" className="font-projectFont font-medium text-sm">Email*</label>
-                    <select onChange={(e) => setEmail(e.target.value)} id="emailRef" type="text" placeholder="Email Confirmation" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-blue-400" required >
+                    <select onChange={(e) => setEmail(e.target.value)} id="emailRef" type="text" placeholder="Email Confirmation" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-orange-400" required >
 					<option disabled selected>Select</option>
                         <option>{emailRef}</option>
                     </select>
@@ -105,13 +115,13 @@ function JobForm() {
         
                 <div className="col-span-full sm:col-span-3">
 					<label for="title" className="font-projectFont font-medium text-sm">Job Title*</label>
-					<input onChange={(e) => setTitle(e.target.value)} id="title" type="text" placeholder="Title" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-blue-400" />
+					<input onChange={(e) => setTitle(e.target.value)} id="title" type="text" placeholder="Title" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-orange-400" />
 				</div>
 
 
 				<div className="col-span-full sm:col-span-3">
 					<label for="location" className="font-projectFont font-medium text-sm">Location*</label>
-					<select onChange={(e) => setLocation(e.target.value)} id="last-name" type="text" placeholder="Location" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-blue-400">
+					<select onChange={(e) => setLocation(e.target.value)} id="last-name" type="text" placeholder="Location" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-orange-400">
 					<option disabled selected>Select</option>
                         <option>Johor</option>
                         <option>Kelantan</option>
@@ -131,7 +141,7 @@ function JobForm() {
 				</div>
 				<div className="col-span-full sm:col-span-3">
 					<label for="type" className="font-projectFont font-medium text-sm">Job Type*</label>
-                    <select onChange={(e) => setType(e.target.value)} className="w-full p-2 font-projectFont text-base bg-white border rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-blue-400">
+                    <select onChange={(e) => setType(e.target.value)} className="w-full p-2 font-projectFont text-base bg-white border rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-orange-400">
                         <option disabled selected>Select</option>
                         <option>Internship</option>
                         <option>Full Time</option>
@@ -140,7 +150,7 @@ function JobForm() {
 
 				<div className="col-span-full sm:col-span-3">
 					<label for="cgpa" className="font-projectFont font-medium text-sm">CGPA*</label>
-                    <select onChange={(e) => setCgpa(e.target.value)} className="w-full p-2 font-projectFont text-base bg-white border rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-blue-400">
+                    <select onChange={(e) => setCgpa(e.target.value)} className="w-full p-2 font-projectFont text-base bg-white border rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-orange-400">
                         <option disabled selected>Select</option>
                         <option>3.80 - 4.00</option>
                         <option>3.50 - 3.80</option>
@@ -156,7 +166,7 @@ function JobForm() {
 
 				<div className="col-span-full sm:col-span-3">
 					<label for="level" className="font-projectFont font-medium text-sm">Education Level</label>
-                    <select onChange={(e) => setLevel(e.target.value)} className="w-full p-2 font-projectFont text-base bg-white border rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-blue-400">
+                    <select onChange={(e) => setLevel(e.target.value)} className="w-full p-2 font-projectFont text-base bg-white border rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-orange-400">
                         <option disabled selected>Select</option>
                         <option>PHD</option>
                         <option>Master</option>
@@ -167,7 +177,7 @@ function JobForm() {
 
 				<div className="col-span-full sm:col-span-3">
 					<label for="techStack" className="font-projectFont font-medium text-sm">Preferred Tech Stack</label>
-                    <select onChange={(e) => setTechStack(e.target.value)} className="w-full p-2 font-projectFont text-base bg-white border rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-blue-400">
+                    <select onChange={(e) => setTechStack(e.target.value)} className="w-full p-2 font-projectFont text-base bg-white border rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-orange-400">
                         <option disabled selected>Select</option>
                         <option>LAMP: Linux, Apache, MySQL, PHP</option>
                         <option>MEAN: MongoDB, Express.js, AngularJS, Node.js</option>
@@ -182,7 +192,7 @@ function JobForm() {
 
 				<div className="col-span-full sm:col-span-3">
 					<label for="prototype" className="font-projectFont font-medium text-sm">Prototyping Tool</label>
-                    <select onChange={(e) => setPrototype(e.target.value)} className="w-full p-2 font-projectFont text-base bg-white border rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-blue-400">
+                    <select onChange={(e) => setPrototype(e.target.value)} className="w-full p-2 font-projectFont text-base bg-white border rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-orange-400">
                         <option disabled selected>Select</option>
                         <option>Figma</option>
                         <option>Adobe XD</option>
@@ -197,7 +207,7 @@ function JobForm() {
 
 				<div className="col-span-full sm:col-span-3">
 					<label for="editor" className="font-projectFont font-medium text-sm">Code Editor</label>
-                    <select onChange={(e) => setEditor(e.target.value)} className="w-full p-2 font-projectFont text-base bg-white border rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-blue-400">
+                    <select onChange={(e) => setEditor(e.target.value)} className="w-full p-2 font-projectFont text-base bg-white border rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-orange-400">
                         <option disabled selected>Select</option>
                         <option>Visual Studio Code</option>
                         <option>Atom</option>
@@ -209,7 +219,7 @@ function JobForm() {
 
 				<div className="col-span-full sm:col-span-3">
 					<label for="dataScience" className="font-projectFont font-medium text-sm">Data Science</label>
-                    <select onChange={(e) => setDataScience(e.target.value)} className="w-full p-2 font-projectFont text-base bg-white border rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-blue-400">
+                    <select onChange={(e) => setDataScience(e.target.value)} className="w-full p-2 font-projectFont text-base bg-white border rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-orange-400">
                         <option disabled selected>Select</option>
                         <option>Python</option>
                         <option>PyTorch</option>
@@ -220,7 +230,7 @@ function JobForm() {
 	
 				<div className="col-span-full sm:col-span-3 flex flex-col space-y-1">
 					<label for="infrastructure" className="font-projectFont font-medium text-sm">Infrastructure</label>
-					<select onChange={(e) => setInfrastructure(e.target.value)} id="infrastructure" type="text" placeholder="Infrastructure" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-blue-400">
+					<select onChange={(e) => setInfrastructure(e.target.value)} id="infrastructure" type="text" placeholder="Infrastructure" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-orange-400">
 					<option disabled selected>Select</option>
                         <option>Amazon Web Services</option>
                         <option>Microsoft Azure</option>
@@ -230,7 +240,7 @@ function JobForm() {
 
 				<div className="col-span-full sm:col-span-3">
 					<label for="description" className="font-projectFont font-medium text-sm">Job Description (Write in a paragraph)*</label>
-					<textarea onChange={(e) => setDescription(e.target.value)} id="description" type="text" placeholder="Job Description" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-blue-400" />
+					<textarea onChange={(e) => setDescription(e.target.value)} id="description" type="text" placeholder="Job Description" className="w-full font-projectFont rounded-md focus:ring focus:ring-opacity-75 focus:ring-orange-400" />
 				</div>
 
 
@@ -239,7 +249,7 @@ function JobForm() {
 		    
 
 			<div className='space-y-2 col-span-full lg:col-span-1  mt-8 '>
-            <button className='px-8 py-3 mb-8 rounded-lg border font-projectFont text-base font-medium bg-blue text-white hover:bg-blue-500 hover:scale-105 active:bg-blue-200'>Save</button>
+            <button className='px-8 py-3 mb-8 rounded-lg border font-projectFont text-base font-medium bg-orange text-white hover:bg-orange-500 hover:scale-105 active:bg-orange-200'>Save</button>
         </div>
 	    </form>
         

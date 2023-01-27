@@ -3,6 +3,7 @@ import { TiUser } from 'react-icons/ti';
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from '../../utils/init-firebase';
 import { useNavigate } from 'react-router-dom';
+import { useToast } from '@chakra-ui/react'
 
 function Form() {
 	const [firstName, setFirstName] = useState('');
@@ -18,6 +19,7 @@ function Form() {
 	const [error, setError] = useState('');
 	const navigate = useNavigate();
 	const email = localStorage.getItem('jap-email');
+	const toast = useToast();
 
 	const handleSubmit = async (e) => {
         e.preventDefault();
@@ -37,9 +39,17 @@ function Form() {
 				qualification : qualification,
 				fieldStudy : fieldStudy,
 			});
+			toast({
+                status: 'success',
+                description: "Successfully update the profile details!"
+            }) 
 			navigate('/CandidateProfile');
         } catch (e) {
-            setError('Failed to save the profile')
+            setError('Failed to update the profile details!');
+			toast({
+                status: 'error',
+                description: "Failed to update the profile details!"
+            }) 
             console.log(e.message)
         }
     }

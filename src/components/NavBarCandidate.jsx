@@ -4,6 +4,7 @@ import { MdOutlineClose } from 'react-icons/md';
 import logo_jap from '../assets/logo-jap.png';
 import { Link, useNavigate } from "react-router-dom";
 import { CandidateAuth } from '../contexts/AuthContext';
+import { useToast } from '@chakra-ui/react'
 
 
 const NavBarCandidate = () => {
@@ -11,13 +12,17 @@ const NavBarCandidate = () => {
     const handleClick = () => setNav(!nav);
     const { candidate, logoutCandidate } = CandidateAuth();
     const navigate = useNavigate();
+    const toast = useToast();
 
     const handleLogout = async () => {
         try {
             await logoutCandidate();
             navigate('/');
-            console.log('You are logged out')
-
+            console.log('You are logged out');
+            toast({
+                status: 'success',
+                description: "You are logged out."
+            }) 
         } catch (e) {
             console.log(e.message)
         }

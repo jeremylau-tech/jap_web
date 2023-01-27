@@ -1,5 +1,5 @@
 import React from 'react';
-import JobCard from '../components/JobListing/JobCard';
+import JobCard from '../components/JobListingEmployer/JobCard';
 import NavBarEmployer from '../components/NavBarEmployer'
 import Footer from '../components/Footer';
 
