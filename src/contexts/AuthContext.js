@@ -21,7 +21,7 @@ export const AuthContextProvider = ({children}) => {
     const toast = useToast();
 
     {/* Candidate */}
-    {/*sign up a new candidate*/}
+{/*sign up a new candidate*/}
     const createCandidate = (email, password) => {
         setError('');
         createUserWithEmailAndPassword(auth, email, password) // create user
@@ -41,7 +41,9 @@ export const AuthContextProvider = ({children}) => {
 
             })
             .catch((error) => {
-                if(error.code == "auth/email-already-in-use") {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                if(errorCode == "auth/email-already-in-use") {
                     setError("The email is already in use. Please enter another email.");
                     console.log(errorMessage);
                     toast({
@@ -92,7 +94,7 @@ export const AuthContextProvider = ({children}) => {
         }
     }
 
-    {/*log out for an existing user*/}
+{/*log out for an existing user*/}
     const logoutCandidate = () => {
         return signOut(auth);
     };
@@ -118,5 +120,3 @@ export const AuthContextProvider = ({children}) => {
 export const CandidateAuth = () => {
     return useContext(CandidateContext);
 };
-
-
