@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, 
+import { getAuth,
+         createUserWithEmailAndPassword, 
          signInWithEmailAndPassword, 
          signOut, 
          onAuthStateChanged, 
@@ -7,6 +8,7 @@ import { createUserWithEmailAndPassword,
 import { auth, db } from '../utils/init-firebase';
 import { doc, setDoc, getDoc } from 'firebase/firestore'
 import { useNavigate } from 'react-router-dom';
+import { useToast } from '@chakra-ui/react'
 
 const CandidateContext = createContext();
 
@@ -15,6 +17,8 @@ export const AuthContextProvider = ({children}) => {
     const [candidate,setCandidate] = useState({});
     const [error, setError] = useState('');
     const navigate = useNavigate();
+    const auth = getAuth();
+    const toast = useToast();
 
     {/* Candidate */}
     {/*sign up a new candidate*/}
@@ -27,21 +31,34 @@ export const AuthContextProvider = ({children}) => {
                     email: email,
                     password: password
                 })  
-                .catch((e) => {
-                    setError('Failed to create an account')
-                    console.log(e.message)
-                });
+                toast({
+                    status: 'success',
+                    description: "Sign Up successfully!"
+                })     
+
+                // Navigate to CandidateInfo page for new user to create their profile
+                navigate('/CandidateInfo')
 
             })
             .catch((error) => {
-                if(error.code === "auth/email-already-in-use") {
+                if(error.code == "auth/email-already-in-use") {
                     setError("The email is already in use. Please enter another email.");
+                    console.log(errorMessage);
+                    toast({
+                        status: 'error',
+                        description: "The email is already in use. Please enter another email."
+                    })
                 }
-                else if(error.code === AuthErrorCodes.WEAK_PASSWORD) {
+                else if(errorCode === AuthErrorCodes.WEAK_PASSWORD) {
                     setError("Password must be 6 characters!");
+                    console.log("Password must be 6 characters!");
+                    toast({
+                        status: 'error',
+                        description: "Password must be 6 characters!"
+                    })
                 }
                 else {
-                    setError(error.message);
+                    setError(errorMessage);
                 }
             });
         };
@@ -59,10 +76,18 @@ export const AuthContextProvider = ({children}) => {
         if (docSnap.exists()) {
             console.log("Document data:", docSnap.data());           
             navigate('/CandidateHome');
+            toast({
+                status: 'success',
+                description: "Welcome!"
+            })   
 
         } else {
         // doc.data() will be undefined in this case
             console.log("You haven't registered as candidate yet. Create an account now!");
+            toast({
+                status: 'error',
+                description: "You haven't registered as candidate yet. Create an account now!"
+            })
             navigate('/SignUpCandidate');
         }
     }

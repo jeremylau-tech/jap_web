@@ -26,9 +26,9 @@ return (
         { job.map((doc) => {
                 return(
                     <div key={doc.id}>
-                <div className="p-6 shadow-xl rounded-md">
+                <div className="p-6 mt-12 shadow-xl rounded-md">
                 <div className="flex items-center space-x-2 font-semibold leading-8">
-                    <span className="tracking-wide font-bold font-projectFont text-blue text-xl">{doc.title} | {doc.company}</span>
+                    <span className="tracking-wide font-bold font-projectFont text-orange text-xl">{doc.title} | {doc.company}</span>
                 </div>
                 <div className="text-black font-projectFont">
                 <div className="grid md:grid-cols-2 text-sm">
@@ -49,9 +49,7 @@ return (
                             <div className="px-4 py-2">{doc.description}</div>
                         </div>
                     </div>
-                    <div className='flex flex-row-reverse mt-8 m-auto text-center'>
-                        <Link to="/ApplyJobForm" onChange={(e) => setEditor(e.target.value)} value={doc.title} state={{ from : doc.title }} className="px-8 py-3 mb-8 rounded-lg border font-projectFont text-base font-medium bg-blue text-white hover:bg-blue-500 hover:scale-105 active:bg-blue-200">Apply</Link>
-                    </div>                    
+                                     
                 </div>
             </div>
 

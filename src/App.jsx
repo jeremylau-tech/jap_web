@@ -22,10 +22,12 @@ import EmployerProfile from './pages/EmployerProfile';
 import ApplicantListing from './pages/ApplicantListing';
 import EditCandidateProfile from './pages/EditCandidateProfile';
 import EditEmployerProfile from './pages/EditEmployerProfile';
+import { ChakraProvider } from '@chakra-ui/react'
 
 function App() {
   return (
     <div className="App">
+      <ChakraProvider>
       <EmployerAuthContextProvider>
       <AuthContextProvider>
         <Routes> {/** outside Routes: display for all pages */}
@@ -54,6 +56,7 @@ function App() {
         </Routes>
       </AuthContextProvider>
       </EmployerAuthContextProvider>
+      </ChakraProvider>
     </div>
   );
 }

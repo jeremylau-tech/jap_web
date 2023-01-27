@@ -5,12 +5,14 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 import { TiUser } from 'react-icons/ti'
 import { FiUser, FiBook } from 'react-icons/fi'
+import { useToast } from '@chakra-ui/react'
 
 function JobForm() {
 
     const [job, setJob] = useState([]);
     const location = useLocation();
     const { from } = location.state;
+    const toast = useToast();
 
     const emailRef = localStorage.getItem('jap-email');
 
@@ -78,12 +80,20 @@ function JobForm() {
                 val:val,
                 val2:val2,
 			});
+            toast({
+                status: 'success',
+                description: "Successfully submit the application!"
+            }) 
 			navigate('/CandidateHome');
             localStorage.setItem('personalEmail', personalEmail);
 
         } catch (e) {
-            setError('Failed to submit the application')
+            setError('Failed to submit the application!')
             console.log(e.message)
+            toast({
+                status: 'error',
+                description: "Failed to submit the application!"
+            }) 
         }
     }
     

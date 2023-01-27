@@ -4,18 +4,25 @@ import { MdOutlineClose } from 'react-icons/md';
 import logo_jap from '../assets/logo-jap.png';
 import { Link, useNavigate } from "react-router-dom";
 import { EmployerAuth } from '../contexts/EmployerAuthContext';
+import { useToast } from '@chakra-ui/react'
+
 
 const NavBarEmployer = () => {
     const [nav, setNav] = useState(false)
     const handleClick = () => setNav(!nav)
     const { employer, logoutEmployer } = EmployerAuth();
     const navigate = useNavigate();
+    const toast = useToast();
 
     const handleLogout = async () => {
         try {
             await logoutEmployer();
             navigate('/');
-            console.log('You are logged out')
+            console.log('You are logged out.');
+            toast({
+                status: 'success',
+                description: "You are logged out."
+            }) 
 
         } catch (e) {
             console.log(e.message)
