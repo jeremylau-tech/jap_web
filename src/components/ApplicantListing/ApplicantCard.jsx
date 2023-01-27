@@ -30,9 +30,9 @@ return (
                 return(
                 <div key={doc.id}>
 
-                <div className="p-6 shadow-xl rounded-md">
+                <div className="p-6 mt-12 shadow-xl rounded-md">
                 <div className="flex items-center space-x-2 font-semibold leading-8">
-                    <span className="tracking-wide font-bold font-projectFont text-blue text-xl">{doc.personalEmail}</span>
+                    <span className="tracking-wide font-bold font-projectFont text-orange text-xl">{doc.personalEmail}</span>
                 </div>
                 <div className="text-black font-projectFont">
                 <br />
@@ -41,14 +41,14 @@ return (
                     <h2 class="text-gray-900 text-lg font-bold">Applied Position: {doc.val}</h2>
                     <h2 class="text-gray-900 text-lg font-bold">Company: {doc.val2}</h2>
                 </div>
-                <div className="bg-gradient-to-tr from-indigo-500 to-indigo-400 w-32 h-32  rounded-full shadow-2xl shadow-[#304FFE] border-white  border-dashed border-2  flex justify-center items-center ">
+                <div className="bg-gradient-to-tr from-indigo-500 to-indigo-400 w-32 h-32 p-4 mb-10  mt-10 md:m-auto rounded-full shadow-2xl shadow-orange-200 border-white  border-dashed border-2  flex justify-center items-center ">
                     <div>
                     <h1 class="text-4xl font-bold text-indigo-500 text-center">{doc.summation}/8</h1>
                     <p class="text-sm font-semibold text-gray-400">Matching Points</p>
                     </div>
                 </div>
                 </div>
-                <Link to="/CandidateProfileEmployer" onChange={(e) => setEditor(e.target.value)} value={doc.personalEmail}  state={{ from : doc.personalEmail }} className="px-8 py-3 mb-8 rounded-lg border font-projectFont text-base font-medium bg-blue text-white hover:bg-blue-500 hover:scale-105 active:bg-blue-200">Candidate Profile</Link>
+                <Link to="/CandidateProfileEmployer" onChange={(e) => setEditor(e.target.value)} value={doc.personalEmail}  state={{ from : doc.personalEmail }} className="px-8 py-3 mb-8 rounded-lg border font-projectFont text-base font-medium bg-orange text-white hover:bg-orange-500 hover:scale-105 active:bg-orange-200">Candidate Profile</Link>
                 
                 </div>
             </div>

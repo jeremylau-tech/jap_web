@@ -3,6 +3,7 @@ import { TiUser } from 'react-icons/ti';
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from '../../utils/init-firebase';
 import { useNavigate } from 'react-router-dom';
+import { useToast } from '@chakra-ui/react'
 
 function Form() {
 	const [firstName, setFirstName] = useState('');
@@ -16,8 +17,8 @@ function Form() {
 	const [qualification, setQualification] = useState('');
 	const [fieldStudy, setFieldStudy] = useState('');
 	const [error, setError] = useState('');
-	// const [email, setEmail] = useState('');
 	const navigate = useNavigate();
+	const toast = useToast();
 
 	const handleSubmit = async (e) => {
         e.preventDefault();
@@ -38,9 +39,17 @@ function Form() {
 				qualification : qualification,
 				fieldStudy : fieldStudy,
 			});
+			toast({
+                status: 'success',
+                description: "Successfully save the profile details!"
+            }) 
 			navigate('/CandidateHome');
         } catch (e) {
-            setError('Failed to save the profile')
+            setError('Failed to save the profile details!');
+			toast({
+                status: 'error',
+                description: "Failed to save the profile details!"
+            }) 
             console.log(e.message)
         }
     }

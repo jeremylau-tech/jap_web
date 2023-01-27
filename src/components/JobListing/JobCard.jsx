@@ -26,7 +26,7 @@ return (
         { job.map((doc) => {
                 return(
                     <div key={doc.id}>
-                <div className="p-6 shadow-xl rounded-md">
+                <div className="p-6 mt-12 shadow-xl rounded-md">
                 <div className="flex items-center space-x-2 font-semibold leading-8">
                     <span className="tracking-wide font-bold font-projectFont text-blue text-xl">{doc.title} | {doc.company}</span>
                 </div>

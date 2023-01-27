@@ -3,6 +3,7 @@ import { HiBuildingOffice } from 'react-icons/hi2';
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from '../../utils/init-firebase';
 import { useNavigate } from 'react-router-dom';
+import { useToast } from '@chakra-ui/react'
 
 function Form() {
 	const [companyName, setCompanyName] = useState('');
@@ -15,6 +16,7 @@ function Form() {
 	const [city, setCity] = useState('');
 	const [error, setError] = useState('');
 	const navigate = useNavigate();
+	const toast = useToast();
 
 	const handleSubmit = async (e) => {
         e.preventDefault();
@@ -33,9 +35,17 @@ function Form() {
 				state : state,
 				city : city,
 			});
+			toast({
+                status: 'success',
+                description: "Successfully save the profile details!"
+            }) 
 			navigate('/EmployerHome');
         } catch (e) {
-            setError('Failed to save the profile.')
+            setError('Failed to save the profile details!');
+			toast({
+                status: 'error',
+                description: "Failed to save the profile details!"
+            }) 
             console.log(e.message)
         }
     }

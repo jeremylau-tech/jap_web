@@ -27,7 +27,7 @@ function LoginForm() {
 
     return (
       <div className='w-full h-screen flex'>
-        <div className='grid grid-cols-1 md:grid-cols-2 m-auto mt-24 h-[550px] shadow-xl sm:max-w-[900px]'>
+        <div className='grid grid-cols-1 md:grid-cols-2 m-auto mt-28 h-[550px] shadow-xl sm:max-w-[900px]'>
             <div className='w-full h-[550px] hidden md:block'>
                 <img className='w-full h-full' src={job_applicant} alt="/"/>
             </div>

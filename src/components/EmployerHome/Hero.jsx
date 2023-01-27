@@ -23,7 +23,7 @@ function Hero() {
                     />
 			        <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
 				        <Link to="/CreateJobForm" className="px-8 py-3 text-lg border font-projectFont font-semibold rounded-lg shadow-xl bg-white text-orange border-orange hover:bg-orange-500 hover:scale-105 hover:text-white active:bg-orange-200">Post Job</Link>
-                <Link to="/JobListing" className="px-8 py-3 text-lg border font-projectFont font-semibold rounded-lg shadow-xl bg-white text-orange border-orange hover:bg-orange-500 hover:scale-105 hover:text-white active:bg-orange-200">Job List</Link>
+                <Link to="/JobListingEmployer" className="px-8 py-3 text-lg border font-projectFont font-semibold rounded-lg shadow-xl bg-white text-orange border-orange hover:bg-orange-500 hover:scale-105 hover:text-white active:bg-orange-200">Job List</Link>
 			        </div>
               <div className="pt-6 flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
 				        <Link to="/ApplicantListing" className="px-8 py-3 text-lg border font-projectFont font-semibold rounded-lg shadow-xl bg-white text-orange border-orange hover:bg-orange-500 hover:scale-105 hover:text-white active:bg-orange-200">Candidate Review</Link>
