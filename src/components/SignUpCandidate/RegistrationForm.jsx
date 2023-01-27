@@ -21,6 +21,7 @@ function RegistrationForm() {
         } catch (e) {
             setError('Failed to create an account')
             console.log(e.message)
+            alert('Failed to create an account')
         }
     }
 

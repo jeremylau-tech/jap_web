@@ -34,7 +34,7 @@ export const AuthContextProvider = ({children}) => {
 
             })
             .catch((error) => {
-                if(error.code == "auth/email-already-in-use") {
+                if(error.code === "auth/email-already-in-use") {
                     setError("The email is already in use. Please enter another email.");
                 }
                 else if(error.code === AuthErrorCodes.WEAK_PASSWORD) {
